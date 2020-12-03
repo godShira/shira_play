@@ -1,9 +1,9 @@
 <template lang="pug">
-router-view
+.khjg  khjg
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  export default {
+    name: 'khjg'
+  }
 </script>

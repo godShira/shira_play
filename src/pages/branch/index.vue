@@ -1,9 +1,9 @@
 <template lang="pug">
-router-view
+h2  branch
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  export default {
+    name: 'branch'
+  }
 </script>

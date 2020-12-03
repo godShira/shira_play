@@ -1,9 +1,9 @@
 <template lang="pug">
-router-view
+.yyls  yyls
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  export default {
+    name: 'yyls'
+  }
 </script>
