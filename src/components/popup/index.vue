@@ -6,14 +6,13 @@
 
 <script>
 import { computed } from 'vue'
-import props, { ROUND_PROPS, POSITION_PROPS, CLOSE_OVERLAY_PROP } from './props'
-import { name } from './config'
+import { ROUND_PROPS, POSITION_PROPS, CLOSE_OVERLAY_PROP } from './props'
+import { OPTION_SETTING, name } from './config'
 
 const CORSS_BAR = '-'
 
 export default {
-  name,
-  props,
+  ...OPTION_SETTING,
   setup(props, context) {
     const cptPopupClass = computed(() => {
       const positionClass = [name, props[POSITION_PROPS]].join(CORSS_BAR)

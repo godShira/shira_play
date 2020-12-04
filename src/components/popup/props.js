@@ -1,6 +1,6 @@
 export const POSITION_PROPS = 'position'
 export const ROUND_PROPS = 'round'
-export const CLOSE_OVERLAY_PROP = 'close-on-click-overlay'
+export const CLOSE_OVERLAY_PROP = 'closeOnClickOverlay'
 
 const DEFAULT_TRUE = {
   type: Boolean,
