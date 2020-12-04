@@ -1,5 +1,5 @@
 <template lang="pug">
-Popup(positon='bottom' :show='show')
+Popup(position='bottom' round :show='show')
 </template>
 <script>
 import { name } from './config'
