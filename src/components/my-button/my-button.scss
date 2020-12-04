@@ -1,0 +1,35 @@
+$red: #e12121;
+$white: #ffffff;
+$default: #333333;
+.my-button {
+  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  min-width: 84px;
+  text-align: center;
+  line-height: 1;
+  &.button-normal {
+    padding: 9px 14px;
+    font-size: 14px;
+    border-radius: 17px;
+  }
+  &.button-large {
+    padding: 14px 0;
+    font-size: 16px;
+    min-width: 295px;
+    border-radius: 22px;
+  }
+  &.button-default {
+    background: $red;
+    border-color: $red;
+    color: $white;
+  }
+  &.button-primary {
+    background: $white;
+    border-color: $default;
+    color: $default;
+  }
+}
+
+
+

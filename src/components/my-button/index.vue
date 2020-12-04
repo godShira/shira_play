@@ -1,8 +1,7 @@
 <template lang="pug">
-.my-button {{props.text}}
+span.my-button(:class="`button-${type} button-${size}`") {{text}}
 </template>
 <script>
-import { computed } from 'vue'
 import props from './props'
 import { name } from './config'
 export default {
@@ -14,5 +13,5 @@ export default {
 }
 </script>
 <style lang="scss">
-@import './button';
+@import './my-button';
 </style>

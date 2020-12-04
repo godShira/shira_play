@@ -2,14 +2,10 @@ export default {
   text: String,
   type: {
     type: String,
-    default: 'default' //default、primary、info、warning、danger
+    default: 'default' //default、primary
   },
-  round: {
-    type: Boolean,
-    default: true
-  },
-  plain: {
-    type: Boolean,
-    default: true
+  size: {
+    type: String,
+    default: 'normal' //normal、large
   }
 }

@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import { myComponents } from './components'
 
+import '@/assets/style/index.scss'
+
 if (process.env.NODE_ENV === 'production' && process.env.VUE_APP_IS_PROD === 'false') {
   const VConsole = require('vconsole')
   new VConsole()
