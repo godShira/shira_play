@@ -9,7 +9,7 @@ export default {
   },
   [POSITION_PROPS]: {
     type: String,
-    default: 'right'
+    default: 'center'
   },
   [ROUND_PROPS]: Boolean
 }
