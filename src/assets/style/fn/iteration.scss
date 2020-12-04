@@ -1,0 +1,33 @@
+@mixin create-iteration($key, $attr, $names, $values) {
+  @for $i from 1 through length($values) {
+    .#{$key}-#{'' + nth($names, $i)}{
+      #{$attr}: #{nth($values, $i)};
+      @if $attr == font-size { line-height: 1 };
+      @if $attr == border-color { border-width: 1px; border-style: solid; }
+    }
+  }
+}
+
+@mixin create-gap($gapTypes, $typeValues, $directions, $directionValues, $gapValues, $gapNames) {
+  @for $i from 1 through length($gapNames) {
+    @for $j from 1 through length($directions) {
+      @for $k from 1 through length($gapTypes) {
+        .#{nth($gapTypes, $k)}#{nth($directions, $j)}-#{'' + nth($gapNames, $i)}{
+          @if #{nth($directionValues, $j)} == kong {
+            @if #{nth($directions, $j)} == x {
+              #{nth($typeValues, $k)}-left: #{nth($gapValues, $i)};
+              #{nth($typeValues, $k)}-right: #{nth($gapValues, $i)};
+            }
+            @else if #{nth($directions, $j)} == y {
+              #{nth($typeValues, $k)}-top: #{nth($gapValues, $i)};
+              #{nth($typeValues, $k)}-bottom: #{nth($gapValues, $i)};
+            }
+          } @else {
+            #{nth($typeValues, $k)}-#{nth($directionValues, $j)}: #{nth($gapValues, $i)}
+          }
+        }
+      }
+    }
+
+  }
+}

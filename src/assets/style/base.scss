@@ -19,3 +19,13 @@ body{
 .full-h {
   width: 100%;
 }
+.full {
+  @extend .full-w;
+  @extend .full-h;
+}
+.border-box {
+  box-sizing: border-box;
+}
+.hidden {
+  overflow: hidden;
+}
