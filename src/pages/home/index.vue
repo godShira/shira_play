@@ -9,7 +9,6 @@ import ActionSheet from '@/components/action-sheet'
 
 export default {
   name: 'home',
-  components: { ActionSheet },
   setup() {
     const isShow = ref(true)
     return {

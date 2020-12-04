@@ -1,5 +1,4 @@
-const SLICER = 2
-const getFileList = ctx => ctx.keys().map(file => file.slice(SLICER, file.lastIndexOf('/')))
+import { getFileList } from '@/util'
 
 const createPageRoute = name => ({
   name,
