@@ -1,12 +1,15 @@
+export const POSITION_PROPS = 'position'
+export const ROUND_PROPS = 'round'
+
 export default {
   show: Boolean,
   overlay: {
     type: Boolean,
     default: true
   },
-  position: {
+  [POSITION_PROPS]: {
     type: String,
     default: 'right'
   },
-  round: Boolean
+  [ROUND_PROPS]: Boolean
 }
