@@ -6,7 +6,7 @@ export default {
   },
   position: {
     type: String,
-    default: 'right'
+    default: 'center'
   },
   round: Boolean
 }

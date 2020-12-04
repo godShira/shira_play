@@ -1,5 +1,5 @@
 const SLICER = 2
-const getFileList = ctx => ctx.keys().map(file => file.slice(SLICER,file.lastIndexOf('/')))
+const getFileList = ctx => ctx.keys().map(file => file.slice(SLICER, file.lastIndexOf('/')))
 
 const createPageRoute = name => ({
   name,

@@ -3,7 +3,7 @@ h2  branch
 </template>
 
 <script>
-  export default {
-    name: 'branch'
-  }
+export default {
+  name: 'branch'
+}
 </script>

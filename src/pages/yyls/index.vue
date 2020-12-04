@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'yyls'
-  }
+export default {
+  name: 'yyls'
+}
 </script>

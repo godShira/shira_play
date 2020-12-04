@@ -7,15 +7,15 @@
 <script>
 import { computed } from 'vue'
 import props from './props'
-import {name} from './config'
+import { name } from './config'
 
 export default {
   name,
   props,
   setup(props) {
-    const cptPopupClass = computed(()=>{
+    const cptPopupClass = computed(() => {
       const positionClass = [name, props.position].join('-')
-      const roundClass =props.round ? [name, 'round'].join('-') : ''
+      const roundClass = props.round ? [name, 'round'].join('-') : ''
       return [positionClass, roundClass]
     })
     return {
@@ -24,3 +24,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import './popup';
+</style>
