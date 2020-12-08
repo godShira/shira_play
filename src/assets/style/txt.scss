@@ -1,7 +1,7 @@
-@include create-iteration(txt, color, $color-names, $colors)
+@include create-iteration(txt, color, $color-names, $colors);
 
 $aligns: left, center, right;
-@include create-iteration(txt, txt-align, $aligns, $aligns)
+@include create-iteration(txt, txt-align, $aligns, $aligns);
 
 $xxs: 12px;
 $xs: 14px;
@@ -11,7 +11,7 @@ $l: 24px;
 $xl: 18px;
 $sizes: $xxs, $xs, $s, $m, $l, $xl, 32px;
 $size-names: $xxs, $xs, $s, $m, $l, $xl, 32px;
-@include create-iteration(txt, font-size, $size-names, $sizes)
+@include create-iteration(txt, font-size, $size-names, $sizes);
 
 .txt-ellipsis {
   white-space: nowrap;

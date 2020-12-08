@@ -136,7 +136,7 @@ Toast.allowMultiple = (value = true) => {
 }
 
 Toast.install = app => {
-  app.use(MyToast)
+  app.component(MyToast)
   app.config.globalProperties.$toast = Toast
 }
 
