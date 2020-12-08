@@ -15,21 +15,19 @@ const devServer = {
   host: '0.0.0.0',
   port: 8090,
   https: false,
-  proxy: apiList.reduce(
-    (x,y) =>({
-      ...x,
-      [`/${y}`]:{
-        changeOrigin: true,
-        ws: true,
-        target
-      }
-    })
-  )
+  proxy: apiList.reduce((x, y) => ({
+    ...x,
+    [`/${y}`]: {
+      changeOrigin: true,
+      ws: true,
+      target
+    }
+  }))
 }
 
 const isTest = process.env.VUE_APP_IS_PROD === 'false'
 
-const publicPath = process.env.NODE_ENV === 'development' ? '/' : [isTest ? '' : '正式环境path',base].join('')
+const publicPath = process.env.NODE_ENV === 'development' ? '/' : [isTest ? '' : '正式环境path', base].join('')
 
 module.exports = {
   publicPath,
@@ -40,7 +38,10 @@ module.exports = {
   filenameHashing: true,
   devServer,
   configureWebpack: config => {
-    if(process.env.NODE_ENV === 'production') {
+    config.externals = {
+      BMap: 'BMap'
+    }
+    if (process.env.NODE_ENV === 'production') {
       const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
       config.plugins.push(
         new BundleAnalyzerPlugin({
