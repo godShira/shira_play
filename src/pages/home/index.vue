@@ -9,9 +9,22 @@ my-button(text="我在其他券商资产满足" type="primary")
 </template>
 
 <script>
+import { getCurrentInstance } from 'vue'
+
 export default {
   name: 'home',
-  setup() {
+  setup(props, context) {
+    const { ctx } = getCurrentInstance()
+    ctx.$toast('已取消本次预约222')
+    /*ctx
+      .$dialog({
+        title: '温馨提示1111',
+        content: '显示错误显示错误',
+        showCancelButton: true
+      })
+      .then(res => {
+        if (res) ctx.$dialog.close()
+      })*/
     return {
       isShow: true
     }
