@@ -1,6 +1,6 @@
 import { h, createApp } from 'vue'
-import { mountComponent, usePopupState } from '../util/mount-component'
-import MyDialog from '../components/my-dialog/index'
+import { mountComponent, usePopupState } from '../../util/mount-component'
+import MyDialog from '../../components/my-dialog/index'
 
 let instance
 

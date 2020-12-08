@@ -1,6 +1,6 @@
 import { h, ref, watch, getCurrentInstance } from 'vue'
-import { mountComponent, usePopupState } from '../util/mount-component'
-import MyToast from '../components/my-toast/index'
+import { mountComponent, usePopupState } from '../../util/mount-component'
+import MyToast from '../../components/my-toast/index'
 
 const defaultOptions = {
   icon: '',
