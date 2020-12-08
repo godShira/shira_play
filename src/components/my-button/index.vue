@@ -1,5 +1,7 @@
 <template lang="pug">
-span.my-button(:class="`button-${type} button-${size}`") {{text}}
+.my-button(:class="`button-${size} button-${type}`")
+  span.btn
+    slot {{text}}
 </template>
 <script>
 import props from './props'
