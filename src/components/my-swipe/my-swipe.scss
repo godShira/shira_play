@@ -1,0 +1,24 @@
+.my-swipe {
+  .slide {
+    width: 100%;
+    flex-shrink: 0;
+  }
+  .indicator {
+    bottom: 8px;
+    .indicator-item {
+      box-sizing: border-box;
+      width: 8px;
+      height: 8px;
+      line-height: 8px;
+      border-radius: 4px;
+      background: #ccc;
+      text-align: center;
+      font-size: 12px;
+      margin: 0 5px;
+      &.active {
+        background: rgba(212, 62, 46, 1);
+      }
+    }
+  }
+}
+
