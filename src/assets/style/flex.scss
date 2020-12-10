@@ -14,7 +14,9 @@
   @extend .flex;
   justify-content: space-between;
 }
-
+.flex-ai-c{
+  align-items: center;
+}
 .flex-shrink-0 {
   flex-shrink: 0;
 }

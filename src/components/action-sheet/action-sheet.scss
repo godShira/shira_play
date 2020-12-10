@@ -1,10 +1,7 @@
-.action-sheet {
-  padding: 14px 16px;
-}
 .action-sheet-head {
   display: flex;
   justify-content: space-between;
-  padding: 6px 0;
+  padding: 20px 16px 6px;
   border-bottom: 1px solid #eee;
   color: #999;
   .action-sheet-title {
@@ -14,7 +11,6 @@
   }
 }
 .action-sheet-content {
-  padding: 14px 0;
   max-height: 70vh;
   overflow-y: scroll;
   &::-webkit-scrollbar {

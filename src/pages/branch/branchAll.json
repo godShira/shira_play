@@ -1,0 +1,1438 @@
+{
+  "cityList": [
+    { "cityno": "3", "provincenno": "3", "cityname": "石家庄市" },
+    { "cityno": "1", "provincenno": "1", "cityname": "北京市" },
+    { "cityno": "2", "provincenno": "2", "cityname": "天津市" },
+    { "cityno": "8", "provincenno": "3", "cityname": "保定市" },
+    { "cityno": "14", "provincenno": "4", "cityname": "太原市" },
+    { "cityno": "25", "provincenno": "5", "cityname": "呼和浩特市" },
+    { "cityno": "28", "provincenno": "5", "cityname": "赤峰市" },
+    { "cityno": "37", "provincenno": "6", "cityname": "沈阳市" },
+    { "cityno": "38", "provincenno": "6", "cityname": "大连市" },
+    { "cityno": "39", "provincenno": "6", "cityname": "鞍山市" },
+    { "cityno": "40", "provincenno": "6", "cityname": "抚顺市" },
+    { "cityno": "42", "provincenno": "6", "cityname": "丹东市" },
+    { "cityno": "51", "provincenno": "7", "cityname": "长春市" },
+    { "cityno": "60", "provincenno": "8", "cityname": "哈尔滨市" },
+    { "cityno": "61", "provincenno": "8", "cityname": "齐齐哈尔市" },
+    { "cityno": "65", "provincenno": "8", "cityname": "大庆市" },
+    { "cityno": "71", "provincenno": "8", "cityname": "绥化市" },
+    { "cityno": "73", "provincenno": "9", "cityname": "上海市" },
+    { "cityno": "74", "provincenno": "10", "cityname": "南京市" },
+    { "cityno": "75", "provincenno": "10", "cityname": "无锡市" },
+    { "cityno": "77", "provincenno": "10", "cityname": "常州市" },
+    { "cityno": "78", "provincenno": "10", "cityname": "苏州市" },
+    { "cityno": "79", "provincenno": "10", "cityname": "南通市" },
+    { "cityno": "80", "provincenno": "10", "cityname": "连云港市" },
+    { "cityno": "83", "provincenno": "10", "cityname": "扬州市" },
+    { "cityno": "84", "provincenno": "10", "cityname": "镇江市" },
+    { "cityno": "87", "provincenno": "11", "cityname": "杭州市" },
+    { "cityno": "88", "provincenno": "11", "cityname": "宁波市" },
+    { "cityno": "89", "provincenno": "11", "cityname": "温州市" },
+    { "cityno": "90", "provincenno": "11", "cityname": "嘉兴市" },
+    { "cityno": "91", "provincenno": "11", "cityname": "湖州市" },
+    { "cityno": "92", "provincenno": "11", "cityname": "绍兴市" },
+    { "cityno": "93", "provincenno": "11", "cityname": "金华市" },
+    { "cityno": "95", "provincenno": "11", "cityname": "舟山市" },
+    { "cityno": "96", "provincenno": "11", "cityname": "台州市" },
+    { "cityno": "98", "provincenno": "12", "cityname": "合肥市" },
+    { "cityno": "99", "provincenno": "12", "cityname": "芜湖市" },
+    { "cityno": "100", "provincenno": "12", "cityname": "蚌埠市" },
+    { "cityno": "102", "provincenno": "12", "cityname": "马鞍山市" },
+    { "cityno": "104", "provincenno": "12", "cityname": "铜陵市" },
+    { "cityno": "105", "provincenno": "12", "cityname": "安庆市" },
+    { "cityno": "108", "provincenno": "12", "cityname": "阜阳市" },
+    { "cityno": "111", "provincenno": "12", "cityname": "六安市" },
+    { "cityno": "113", "provincenno": "12", "cityname": "池州市" },
+    { "cityno": "115", "provincenno": "13", "cityname": "福州市" },
+    { "cityno": "116", "provincenno": "13", "cityname": "厦门市" },
+    { "cityno": "117", "provincenno": "13", "cityname": "莆田市" },
+    { "cityno": "120", "provincenno": "13", "cityname": "漳州市" },
+    { "cityno": "122", "provincenno": "13", "cityname": "龙岩市" },
+    { "cityno": "124", "provincenno": "14", "cityname": "南昌市" },
+    { "cityno": "127", "provincenno": "14", "cityname": "九江市" },
+    { "cityno": "130", "provincenno": "14", "cityname": "赣州市" },
+    { "cityno": "134", "provincenno": "14", "cityname": "上饶市" },
+    { "cityno": "135", "provincenno": "15", "cityname": "济南市" },
+    { "cityno": "136", "provincenno": "15", "cityname": "青岛市" },
+    { "cityno": "137", "provincenno": "15", "cityname": "淄博市" },
+    { "cityno": "138", "provincenno": "15", "cityname": "枣庄市" },
+    { "cityno": "140", "provincenno": "15", "cityname": "烟台市" },
+    { "cityno": "141", "provincenno": "15", "cityname": "潍坊市" },
+    { "cityno": "142", "provincenno": "15", "cityname": "济宁市" },
+    { "cityno": "144", "provincenno": "15", "cityname": "威海市" },
+    { "cityno": "147", "provincenno": "15", "cityname": "临沂市" },
+    { "cityno": "149", "provincenno": "15", "cityname": "聊城市" },
+    { "cityno": "151", "provincenno": "15", "cityname": "菏泽市" },
+    { "cityno": "152", "provincenno": "16", "cityname": "郑州市" },
+    { "cityno": "156", "provincenno": "16", "cityname": "安阳市" },
+    { "cityno": "164", "provincenno": "16", "cityname": "南阳市" },
+    { "cityno": "166", "provincenno": "16", "cityname": "信阳市" },
+    { "cityno": "169", "provincenno": "17", "cityname": "武汉市" },
+    { "cityno": "170", "provincenno": "17", "cityname": "黄石市" },
+    { "cityno": "171", "provincenno": "17", "cityname": "十堰市" },
+    { "cityno": "172", "provincenno": "17", "cityname": "宜昌市" },
+    { "cityno": "177", "provincenno": "17", "cityname": "荆州市" },
+    { "cityno": "183", "provincenno": "18", "cityname": "长沙市" },
+    { "cityno": "184", "provincenno": "18", "cityname": "株洲市" },
+    { "cityno": "185", "provincenno": "18", "cityname": "湘潭市" },
+    { "cityno": "186", "provincenno": "18", "cityname": "衡阳市" },
+    { "cityno": "188", "provincenno": "18", "cityname": "岳阳市" },
+    { "cityno": "192", "provincenno": "18", "cityname": "郴州市" },
+    { "cityno": "197", "provincenno": "19", "cityname": "广州市" },
+    { "cityno": "199", "provincenno": "19", "cityname": "深圳市" },
+    { "cityno": "200", "provincenno": "19", "cityname": "珠海市" },
+    { "cityno": "202", "provincenno": "19", "cityname": "佛山市" },
+    { "cityno": "203", "provincenno": "19", "cityname": "江门市" },
+    { "cityno": "207", "provincenno": "19", "cityname": "惠州市" },
+    { "cityno": "213", "provincenno": "19", "cityname": "东莞市" },
+    { "cityno": "214", "provincenno": "19", "cityname": "中山市" },
+    { "cityno": "217", "provincenno": "19", "cityname": "云浮市" },
+    { "cityno": "218", "provincenno": "20", "cityname": "南宁市" },
+    { "cityno": "219", "provincenno": "20", "cityname": "柳州市" },
+    { "cityno": "220", "provincenno": "20", "cityname": "桂林市" },
+    { "cityno": "221", "provincenno": "20", "cityname": "梧州市" },
+    { "cityno": "222", "provincenno": "20", "cityname": "北海市" },
+    { "cityno": "225", "provincenno": "20", "cityname": "贵港市" },
+    { "cityno": "226", "provincenno": "20", "cityname": "玉林市" },
+    { "cityno": "232", "provincenno": "21", "cityname": "海口市" },
+    { "cityno": "234", "provincenno": "22", "cityname": "重庆市" },
+    { "cityno": "235", "provincenno": "23", "cityname": "成都市" },
+    { "cityno": "240", "provincenno": "23", "cityname": "绵阳市" },
+    { "cityno": "245", "provincenno": "23", "cityname": "南充市" },
+    { "cityno": "256", "provincenno": "24", "cityname": "贵阳市" },
+    { "cityno": "265", "provincenno": "25", "cityname": "昆明市" },
+    { "cityno": "288", "provincenno": "27", "cityname": "西安市" },
+    { "cityno": "295", "provincenno": "27", "cityname": "榆林市" },
+    { "cityno": "6", "provincenno": "27", "cityname": "咸阳市" },
+    { "cityno": "310", "provincenno": "28", "cityname": "兰州市" },
+    { "cityno": "311", "provincenno": "28", "cityname": "酒泉市" },
+    { "cityno": "320", "provincenno": "30", "cityname": "银川市" },
+    { "cityno": "345", "provincenno": "13", "cityname": "晋江市" },
+    { "cityno": "346", "provincenno": "17", "cityname": "襄阳市" },
+    { "cityno": "347", "provincenno": "31", "cityname": "乌鲁木齐" }
+  ],
+  "provinceList": [
+    { "provincename": "北京市", "provinceno": "1" },
+    { "provincename": "天津市", "provinceno": "2" },
+    { "provincename": "河北省", "provinceno": "3" },
+    { "provincename": "山西省", "provinceno": "4" },
+    { "provincename": "内蒙古自治区", "provinceno": "5" },
+    { "provincename": "辽宁省", "provinceno": "6" },
+    { "provincename": "吉林省", "provinceno": "7" },
+    { "provincename": "黑龙江省", "provinceno": "8" },
+    { "provincename": "上海市", "provinceno": "9" },
+    { "provincename": "江苏省", "provinceno": "10" },
+    { "provincename": "浙江省", "provinceno": "11" },
+    { "provincename": "安徽省", "provinceno": "12" },
+    { "provincename": "福建省", "provinceno": "13" },
+    { "provincename": "江西省", "provinceno": "14" },
+    { "provincename": "山东省", "provinceno": "15" },
+    { "provincename": "河南省", "provinceno": "16" },
+    { "provincename": "湖北省", "provinceno": "17" },
+    { "provincename": "湖南省", "provinceno": "18" },
+    { "provincename": "广东省", "provinceno": "19" },
+    { "provincename": "广西壮族自治区", "provinceno": "20" },
+    { "provincename": "海南省", "provinceno": "21" },
+    { "provincename": "重庆市", "provinceno": "22" },
+    { "provincename": "四川省", "provinceno": "23" },
+    { "provincename": "贵州省", "provinceno": "24" },
+    { "provincename": "云南省", "provinceno": "25" },
+    { "provincename": "陕西省", "provinceno": "27" },
+    { "provincename": "甘肃省", "provinceno": "28" },
+    { "provincename": "宁夏回族自治区", "provinceno": "30" },
+    { "provincename": "新疆维吾尔自治区", "provinceno": "31" }
+  ],
+  "branchList": [
+    {
+      "cityno": "199",
+      "branchcode": "001",
+      "branchname": "深圳南山南油大道证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "002",
+      "branchname": "深圳益田路免税商务大厦证券营业部"
+    },
+    {
+      "cityno": "197",
+      "branchcode": "003",
+      "branchname": "广州天河北路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "005",
+      "branchname": "深圳壹海城证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "006",
+      "branchname": "上海江苏路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "007",
+      "branchname": "北京建国路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "008",
+      "branchname": "深圳福民路证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "009",
+      "branchname": "上海娄山关路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "010",
+      "branchname": "深圳东门南路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "011",
+      "branchname": "深圳笋岗路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "012",
+      "branchname": "深圳前海路证券营业部"
+    },
+    {
+      "cityno": "136",
+      "branchcode": "013",
+      "branchname": "青岛金家岭金融区证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "015",
+      "branchname": "深圳龙岗龙岗大道证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "016",
+      "branchname": "深圳建安路证券营业部"
+    },
+    {
+      "cityno": "60",
+      "branchcode": "017",
+      "branchname": "哈尔滨长江路证券营业部"
+    },
+    {
+      "cityno": "74",
+      "branchcode": "018",
+      "branchname": "南京中山南路证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "019",
+      "branchname": "上海翔殷路证券营业部"
+    },
+    {
+      "cityno": "83",
+      "branchcode": "020",
+      "branchname": "扬州汶河北路证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "021",
+      "branchname": "上海世纪大道证券营业部"
+    },
+    {
+      "cityno": "75",
+      "branchcode": "022",
+      "branchname": "无锡新生路证券营业部"
+    },
+    {
+      "cityno": "87",
+      "branchcode": "023",
+      "branchname": "杭州天目山路证券营业部"
+    },
+    {
+      "cityno": "37",
+      "branchcode": "024",
+      "branchname": "沈阳兴工街证券营业部"
+    },
+    {
+      "cityno": "213",
+      "branchcode": "025",
+      "branchname": "东莞鸿福路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "026",
+      "branchname": "北京西直门北大街证券营业部"
+    },
+    {
+      "cityno": "265",
+      "branchcode": "027",
+      "branchname": "昆明北京路证券营业部"
+    },
+    {
+      "cityno": "169",
+      "branchcode": "028",
+      "branchname": "武汉中北路证券营业部"
+    },
+    {
+      "cityno": "200",
+      "branchcode": "029",
+      "branchname": "珠海人民西路证券营业部"
+    },
+    {
+      "cityno": "218",
+      "branchcode": "031",
+      "branchname": "南宁金湖路证券营业部"
+    },
+    {
+      "cityno": "98",
+      "branchcode": "035",
+      "branchname": "合肥北一环证券营业部"
+    },
+    {
+      "cityno": "202",
+      "branchcode": "036",
+      "branchname": "佛山季华五路证券营业部"
+    },
+    {
+      "cityno": "183",
+      "branchcode": "038",
+      "branchname": "长沙芙蓉中路证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "039",
+      "branchname": "上海肇嘉浜路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "048",
+      "branchname": "深圳福华三路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "050",
+      "branchname": "北京颐和园路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "051",
+      "branchname": "北京朝外大街证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "052",
+      "branchname": "北京安外大街证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "053",
+      "branchname": "北京车公庄西路证券营业部"
+    },
+    {
+      "cityno": "135",
+      "branchcode": "056",
+      "branchname": "济南泉城路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "058",
+      "branchname": "北京知春东里证券营业部"
+    },
+    {
+      "cityno": "234",
+      "branchcode": "059",
+      "branchname": "重庆金沙门路营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "060",
+      "branchname": "北京光明路证券营业部"
+    },
+    {
+      "cityno": "115",
+      "branchcode": "061",
+      "branchname": "福州六一中路证券营业部"
+    },
+    {
+      "cityno": "235",
+      "branchcode": "062",
+      "branchname": "成都人民南路证券营业部"
+    },
+    {
+      "cityno": "219",
+      "branchcode": "063",
+      "branchname": "柳州解放北路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "064",
+      "branchname": "深圳科技园高新南一道证券营业部"
+    },
+    {
+      "cityno": "218",
+      "branchcode": "065",
+      "branchname": "南宁民族大道证券营业部"
+    },
+    {
+      "cityno": "220",
+      "branchcode": "068",
+      "branchname": "桂林中山北路证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "069",
+      "branchname": "上海浦东新区浦东南路证券营业部"
+    },
+    {
+      "cityno": "202",
+      "branchcode": "070",
+      "branchname": "佛山顺德东乐路证券营业部"
+    },
+    {
+      "cityno": "2",
+      "branchcode": "073",
+      "branchname": "天津友谊北路证券营业部"
+    },
+    {
+      "cityno": "78",
+      "branchcode": "076",
+      "branchname": "苏州证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "077",
+      "branchname": "北京北三环东路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "078",
+      "branchname": "深圳宝兴路证券营业部"
+    },
+    {
+      "cityno": "288",
+      "branchcode": "079",
+      "branchname": "西安北大街证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "081",
+      "branchname": "北京安立路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "082",
+      "branchname": "北京东四十条证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "083",
+      "branchname": "上海陆家嘴东路证券营业部"
+    },
+    {
+      "cityno": "169",
+      "branchcode": "087",
+      "branchname": "武汉航空路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "089",
+      "branchname": "北京金融大街证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "090",
+      "branchname": "深圳水贝证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "092",
+      "branchname": "深圳蛇口工业三路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "093",
+      "branchname": "深圳深南东路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "095",
+      "branchname": "深圳深南中路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "097",
+      "branchname": "深圳车公庙证券营业部"
+    },
+    {
+      "cityno": "39",
+      "branchcode": "101",
+      "branchname": "鞍山新华街证券营业部"
+    },
+    {
+      "cityno": "197",
+      "branchcode": "103",
+      "branchname": "广州华穗路证券营业部"
+    },
+    {
+      "cityno": "184",
+      "branchcode": "105",
+      "branchname": "株洲天台路证券营业部"
+    },
+    {
+      "cityno": "172",
+      "branchcode": "106",
+      "branchname": "宜昌胜利四路证券营业部"
+    },
+    {
+      "cityno": "140",
+      "branchcode": "107",
+      "branchname": "烟台莱州市府前街证券营业部"
+    },
+    {
+      "cityno": "226",
+      "branchcode": "108",
+      "branchname": "玉林广场东路证券营业部"
+    },
+    {
+      "cityno": "222",
+      "branchcode": "109",
+      "branchname": "北海市北海大道证券营业部"
+    },
+    {
+      "cityno": "221",
+      "branchcode": "110",
+      "branchname": "梧州冬湖路证券营业部"
+    },
+    {
+      "cityno": "14",
+      "branchcode": "111",
+      "branchname": "太原平阳路证券营业部"
+    },
+    {
+      "cityno": "214",
+      "branchcode": "113",
+      "branchname": "中山中山四路证券营业部"
+    },
+    {
+      "cityno": "234",
+      "branchcode": "115",
+      "branchname": "重庆涪陵广场路证券营业部"
+    },
+    {
+      "cityno": "102",
+      "branchcode": "116",
+      "branchname": "马鞍山湖南西路证券营业部"
+    },
+    {
+      "cityno": "2",
+      "branchcode": "118",
+      "branchname": "天津开发第三大街证券营业部"
+    },
+    {
+      "cityno": "6",
+      "branchcode": "119",
+      "branchname": "咸阳世纪大道证券营业部"
+    },
+    {
+      "cityno": "295",
+      "branchcode": "120",
+      "branchname": "榆林明珠大道证券营业部"
+    },
+    {
+      "cityno": "140",
+      "branchcode": "123",
+      "branchname": "烟台长江路证券营业部"
+    },
+    {
+      "cityno": "171",
+      "branchcode": "126",
+      "branchname": "十堰公园路营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "128",
+      "branchname": "上海牡丹江路证券营业部"
+    },
+    {
+      "cityno": "320",
+      "branchcode": "133",
+      "branchname": "银川宁安大街证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "136",
+      "branchname": "北京顺义仓上街证券营业部"
+    },
+    {
+      "cityno": "177",
+      "branchcode": "137",
+      "branchname": "荆州荆中路营业部"
+    },
+    {
+      "cityno": "3",
+      "branchcode": "138",
+      "branchname": "石家庄裕华东路证券营业部"
+    },
+    {
+      "cityno": "65",
+      "branchcode": "150",
+      "branchname": "大庆西宾路证券营业部"
+    },
+    {
+      "cityno": "310",
+      "branchcode": "155",
+      "branchname": "兰州庆阳路证券营业部"
+    },
+    {
+      "cityno": "88",
+      "branchcode": "158",
+      "branchname": "宁波江澄北路证券营业部"
+    },
+    {
+      "cityno": "152",
+      "branchcode": "166",
+      "branchname": "郑州商务外环路证券营业部"
+    },
+    {
+      "cityno": "141",
+      "branchcode": "167",
+      "branchname": "潍坊北海路证券营业部"
+    },
+    {
+      "cityno": "51",
+      "branchcode": "177",
+      "branchname": "长春人民大街证券营业部"
+    },
+    {
+      "cityno": "116",
+      "branchcode": "178",
+      "branchname": "厦门湖滨东路证券营业部"
+    },
+    {
+      "cityno": "124",
+      "branchcode": "180",
+      "branchname": "南昌北京西路证券营业部"
+    },
+    {
+      "cityno": "38",
+      "branchcode": "185",
+      "branchname": "大连新开路证券营业部"
+    },
+    {
+      "cityno": "136",
+      "branchcode": "186",
+      "branchname": "青岛西海岸新区证券营业部"
+    },
+    {
+      "cityno": "89",
+      "branchcode": "188",
+      "branchname": "温州新城大道证券营业部"
+    },
+    {
+      "cityno": "104",
+      "branchcode": "189",
+      "branchname": "铜陵石城大道证券营业部"
+    },
+    {
+      "cityno": "136",
+      "branchcode": "190",
+      "branchname": "青岛即墨市蓝鳌路证券营业部"
+    },
+    {
+      "cityno": "232",
+      "branchcode": "193",
+      "branchname": "海口国贸大道证券营业部"
+    },
+    {
+      "cityno": "120",
+      "branchcode": "196",
+      "branchname": "漳州南昌中路证券营业部"
+    },
+    {
+      "cityno": "256",
+      "branchcode": "208",
+      "branchname": "贵阳中华南路证券营业部"
+    },
+    {
+      "cityno": "25",
+      "branchcode": "217",
+      "branchname": "呼和浩特新华东街证券营业部"
+    },
+    {
+      "cityno": "61",
+      "branchcode": "300",
+      "branchname": "齐齐哈尔公园路证券营业部"
+    },
+    {
+      "cityno": "71",
+      "branchcode": "301",
+      "branchname": "绥化人和街证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "302",
+      "branchname": "深圳布龙路证券营业部"
+    },
+    {
+      "cityno": "217",
+      "branchcode": "303",
+      "branchname": "云浮新兴新州大道证券营业部"
+    },
+    {
+      "cityno": "288",
+      "branchcode": "305",
+      "branchname": "西安曲江新区证券营业部"
+    },
+    {
+      "cityno": "93",
+      "branchcode": "306",
+      "branchname": "义乌宗泽路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "307",
+      "branchname": "北京东三环北路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "308",
+      "branchname": "北京北苑路证券营业部"
+    },
+    {
+      "cityno": "130",
+      "branchcode": "309",
+      "branchname": "赣州红旗大道证券营业部"
+    },
+    {
+      "cityno": "124",
+      "branchcode": "310",
+      "branchname": "南昌火炬大街证券营业部"
+    },
+    {
+      "cityno": "78",
+      "branchcode": "311",
+      "branchname": "张家港人民中路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "312",
+      "branchname": "深圳朗山路证券营业部"
+    },
+    {
+      "cityno": "197",
+      "branchcode": "313",
+      "branchname": "广州增城荔乡路证券营业部"
+    },
+    {
+      "cityno": "288",
+      "branchcode": "315",
+      "branchname": "西安锦业路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "316",
+      "branchname": "深圳中心路证券营业部"
+    },
+    {
+      "cityno": "149",
+      "branchcode": "317",
+      "branchname": "聊城东昌路证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "318",
+      "branchname": "上海沪青平公路证券营业部"
+    },
+    {
+      "cityno": "203",
+      "branchcode": "319",
+      "branchname": "江门白沙大道东证券营业部"
+    },
+    {
+      "cityno": "111",
+      "branchcode": "320",
+      "branchname": "六安梅山路证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "321",
+      "branchname": "上海黄浦区西藏南路证券营业部"
+    },
+    {
+      "cityno": "240",
+      "branchcode": "322",
+      "branchname": "绵阳临园路证券营业部"
+    },
+    {
+      "cityno": "197",
+      "branchcode": "323",
+      "branchname": "广州番禺南华路证券营业部"
+    },
+    {
+      "cityno": "2",
+      "branchcode": "326",
+      "branchname": "天津滨海新区证券营业部"
+    },
+    {
+      "cityno": "245",
+      "branchcode": "327",
+      "branchname": "南充丝绸路证券营业部"
+    },
+    {
+      "cityno": "213",
+      "branchcode": "328",
+      "branchname": "东莞石龙西湖一路证券营业部"
+    },
+    {
+      "cityno": "200",
+      "branchcode": "329",
+      "branchname": "珠海粤海东路营业部"
+    },
+    {
+      "cityno": "90",
+      "branchcode": "330",
+      "branchname": "嘉兴中山东路证券营业部"
+    },
+    {
+      "cityno": "225",
+      "branchcode": "331",
+      "branchname": "贵港金港大道证券营业部"
+    },
+    {
+      "cityno": "89",
+      "branchcode": "332",
+      "branchname": "乐清旭阳路证券营业部"
+    },
+    {
+      "cityno": "202",
+      "branchcode": "333",
+      "branchname": "佛山南海南平西路证券营业部"
+    },
+    {
+      "cityno": "88",
+      "branchcode": "335",
+      "branchname": "余姚南雷路证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "336",
+      "branchname": "上海龙茗路证券营业部"
+    },
+    {
+      "cityno": "92",
+      "branchcode": "337",
+      "branchname": "绍兴中兴南路证券营业部"
+    },
+    {
+      "cityno": "213",
+      "branchcode": "338",
+      "branchname": "东莞厚街珊瑚路证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "339",
+      "branchname": "上海嘉定区民主街证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "345",
+      "branchname": "上海浦东新区樱花路营业部"
+    },
+    {
+      "cityno": "188",
+      "branchcode": "350",
+      "branchname": "岳阳大道西证券营业部"
+    },
+    {
+      "cityno": "95",
+      "branchcode": "351",
+      "branchname": "舟山千岛路证券营业部"
+    },
+    {
+      "cityno": "207",
+      "branchcode": "353",
+      "branchname": "惠州文明一路证券营业部"
+    },
+    {
+      "cityno": "144",
+      "branchcode": "355",
+      "branchname": "威海青岛北路证券营业部"
+    },
+    {
+      "cityno": "75",
+      "branchcode": "356",
+      "branchname": "江阴市环城北路27号705"
+    },
+    {
+      "cityno": "88",
+      "branchcode": "357",
+      "branchname": "宁波丽江东路证券营业部"
+    },
+    {
+      "cityno": "74",
+      "branchcode": "358",
+      "branchname": "江宁天元东路证券营业部"
+    },
+    {
+      "cityno": "170",
+      "branchcode": "359",
+      "branchname": "黄石南京路营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "360",
+      "branchname": "北京方庄路证券营业部"
+    },
+    {
+      "cityno": "288",
+      "branchcode": "361",
+      "branchname": "西安未央证券营业部"
+    },
+    {
+      "cityno": "136",
+      "branchcode": "362",
+      "branchname": "青岛海尔路证券营业部"
+    },
+    {
+      "cityno": "77",
+      "branchcode": "363",
+      "branchname": "常州常武中路证券营业部"
+    },
+    {
+      "cityno": "96",
+      "branchcode": "365",
+      "branchname": "台州市府大道证券营业部"
+    },
+    {
+      "cityno": "108",
+      "branchcode": "366",
+      "branchname": "阜阳人民路证券营业部"
+    },
+    {
+      "cityno": "151",
+      "branchcode": "367",
+      "branchname": "菏泽人民路证券营业部"
+    },
+    {
+      "cityno": "197",
+      "branchcode": "368",
+      "branchname": "广州南沙进港大道证券营业部"
+    },
+    {
+      "cityno": "98",
+      "branchcode": "369",
+      "branchname": "合肥望江西路营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "370",
+      "branchname": "北京中核路证券营业部"
+    },
+    {
+      "cityno": "87",
+      "branchcode": "371",
+      "branchname": "杭州富春路证券营业部"
+    },
+    {
+      "cityno": "113",
+      "branchcode": "372",
+      "branchname": "池州长江南路证券营业部"
+    },
+    {
+      "cityno": "235",
+      "branchcode": "373",
+      "branchname": "成都人民中路证券营业部"
+    },
+    {
+      "cityno": "136",
+      "branchcode": "375",
+      "branchname": "青岛胶州市澳门路证券营业部"
+    },
+    {
+      "cityno": "234",
+      "branchcode": "376",
+      "branchname": "重庆学府大道证券营业部"
+    },
+    {
+      "cityno": "99",
+      "branchcode": "377",
+      "branchname": "芜湖文化路证券营业部"
+    },
+    {
+      "cityno": "78",
+      "branchcode": "378",
+      "branchname": "昆山春旭路证券营业部"
+    },
+    {
+      "cityno": "136",
+      "branchcode": "379",
+      "branchname": "青岛五四广场证券营业部"
+    },
+    {
+      "cityno": "115",
+      "branchcode": "380",
+      "branchname": "福清江滨路证券营业部"
+    },
+    {
+      "cityno": "122",
+      "branchcode": "381",
+      "branchname": "龙岩龙岩大道证券营业部"
+    },
+    {
+      "cityno": "311",
+      "branchcode": "382",
+      "branchname": "酒泉宝泉东路证券营业部"
+    },
+    {
+      "cityno": "117",
+      "branchcode": "383",
+      "branchname": "莆田延寿南路证券营业部"
+    },
+    {
+      "cityno": "183",
+      "branchcode": "385",
+      "branchname": "长沙开元中路证券营业部"
+    },
+    {
+      "cityno": "91",
+      "branchcode": "386",
+      "branchname": "湖州苕溪西路证券营业部"
+    },
+    {
+      "cityno": "169",
+      "branchcode": "387",
+      "branchname": "武汉关山大道证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "388",
+      "branchname": "北京上地农大南路证券营业部"
+    },
+    {
+      "cityno": "213",
+      "branchcode": "389",
+      "branchname": "东莞虎门连升中路证券营业部"
+    },
+    {
+      "cityno": "75",
+      "branchcode": "390",
+      "branchname": "宜兴氿滨大道证券营业部"
+    },
+    {
+      "cityno": "345",
+      "branchcode": "391",
+      "branchname": "晋江和平中路证券营业部"
+    },
+    {
+      "cityno": "136",
+      "branchcode": "392",
+      "branchname": "青岛平度市红旗路证券营业部"
+    },
+    {
+      "cityno": "84",
+      "branchcode": "393",
+      "branchname": "镇江谷阳路证券营业部"
+    },
+    {
+      "cityno": "141",
+      "branchcode": "395",
+      "branchname": "寿光圣城街证券营业部"
+    },
+    {
+      "cityno": "137",
+      "branchcode": "396",
+      "branchname": "淄博共青团路证券营业部"
+    },
+    {
+      "cityno": "147",
+      "branchcode": "397",
+      "branchname": "临沂北京路证券营业部"
+    },
+    {
+      "cityno": "142",
+      "branchcode": "398",
+      "branchname": "济宁红星东路证券营业部"
+    },
+    {
+      "cityno": "100",
+      "branchcode": "399",
+      "branchname": "蚌埠涂山东路证券营业部"
+    },
+    {
+      "cityno": "28",
+      "branchcode": "500",
+      "branchname": "赤峰玉龙大街证券营业部"
+    },
+    {
+      "cityno": "60",
+      "branchcode": "501",
+      "branchname": "哈尔滨自兴街证券营业部"
+    },
+    {
+      "cityno": "197",
+      "branchcode": "503",
+      "branchname": "广州大学城证券营业部"
+    },
+    {
+      "cityno": "235",
+      "branchcode": "505",
+      "branchname": "成都天府三街证券营业部"
+    },
+    {
+      "cityno": "346",
+      "branchcode": "506",
+      "branchname": "襄阳前进路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "507",
+      "branchname": "北京通州新华西街证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "508",
+      "branchname": "北京远大路证券营业部"
+    },
+    {
+      "cityno": "127",
+      "branchcode": "509",
+      "branchname": "九江九龙街证券营业部"
+    },
+    {
+      "cityno": "134",
+      "branchcode": "510",
+      "branchname": "上饶赣东北大道证券营业部"
+    },
+    {
+      "cityno": "6",
+      "branchcode": "511",
+      "branchname": "西咸新区证券营业部"
+    },
+    {
+      "cityno": "8",
+      "branchcode": "512",
+      "branchname": "保定东风中路证券营业部"
+    },
+    {
+      "cityno": "186",
+      "branchcode": "515",
+      "branchname": "衡阳解放大道证券营业部"
+    },
+    {
+      "cityno": "164",
+      "branchcode": "516",
+      "branchname": "南阳新华路证券营业部"
+    },
+    {
+      "cityno": "60",
+      "branchcode": "517",
+      "branchname": "哈尔滨爱建路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "518",
+      "branchname": "北京望京阜安西路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "519",
+      "branchname": "深圳金田路证券营业部"
+    },
+    {
+      "cityno": "185",
+      "branchcode": "520",
+      "branchname": "湘潭河东大道证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "521",
+      "branchname": "上海静安石门一路证券营业部"
+    },
+    {
+      "cityno": "105",
+      "branchcode": "522",
+      "branchname": "安庆皖江大道证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "525",
+      "branchname": "深圳五和大道证券营业部"
+    },
+    {
+      "cityno": "136",
+      "branchcode": "526",
+      "branchname": "青岛莱西市上海路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "528",
+      "branchname": "北京朝阳路八里庄证券营业部"
+    },
+    {
+      "cityno": "152",
+      "branchcode": "529",
+      "branchname": "郑州自贸区证券营业部"
+    },
+    {
+      "cityno": "214",
+      "branchcode": "530",
+      "branchname": "中山坦洲证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "533",
+      "branchname": "深圳红荔西路证券营业部"
+    },
+    {
+      "cityno": "140",
+      "branchcode": "535",
+      "branchname": "龙口南山路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "536",
+      "branchname": "北京西翠路证券营业部"
+    },
+    {
+      "cityno": "42",
+      "branchcode": "550",
+      "branchname": "丹东金桥证券营业部"
+    },
+    {
+      "cityno": "310",
+      "branchcode": "551",
+      "branchname": "兰州西固中街证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "553",
+      "branchname": "北京平安大街证券营业部"
+    },
+    {
+      "cityno": "38",
+      "branchcode": "555",
+      "branchname": "大连华南广场证券营业部"
+    },
+    {
+      "cityno": "37",
+      "branchcode": "557",
+      "branchname": "沈阳浑南证券营业部"
+    },
+    {
+      "cityno": "2",
+      "branchcode": "558",
+      "branchname": "天津北辰证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "559",
+      "branchname": "深圳后海证券营业部"
+    },
+    {
+      "cityno": "164",
+      "branchcode": "560",
+      "branchname": "内乡牧原证券营业部"
+    },
+    {
+      "cityno": "197",
+      "branchcode": "565",
+      "branchname": "广州金沙洲证券营业部"
+    },
+    {
+      "cityno": "156",
+      "branchcode": "556",
+      "branchname": "安阳朝阳路证券营业部"
+    },
+    {
+      "cityno": "192",
+      "branchcode": "566",
+      "branchname": "郴州五岭大道证券营业部"
+    },
+    {
+      "cityno": "40",
+      "branchcode": "567",
+      "branchname": "抚顺临江东路证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "568",
+      "branchname": "上海中山南路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "569",
+      "branchname": "深圳宝源路证券营业部"
+    },
+    {
+      "cityno": "87",
+      "branchcode": "571",
+      "branchname": "杭州海创园证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "577",
+      "branchname": "深圳西丽留仙大道证券营业部"
+    },
+    {
+      "cityno": "89",
+      "branchcode": "578",
+      "branchname": "温州鹿城路证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "580",
+      "branchname": "上海世博证券营业部"
+    },
+    {
+      "cityno": "166",
+      "branchcode": "585",
+      "branchname": "信阳申城大道证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "586",
+      "branchname": "上海长柳路证券营业部"
+    },
+    {
+      "cityno": "288",
+      "branchcode": "587",
+      "branchname": "西安长安区证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "588",
+      "branchname": "上海张江高科技园区证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "589",
+      "branchname": "北京酒仙桥路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "590",
+      "branchname": "深圳梅康路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "591",
+      "branchname": "深圳海天一路证券营业部"
+    },
+    {
+      "cityno": "234",
+      "branchcode": "592",
+      "branchname": "重庆解放碑证券营业部"
+    },
+    {
+      "cityno": "234",
+      "branchcode": "593",
+      "branchname": "重庆汽博中心证券营业部"
+    },
+    {
+      "cityno": "347",
+      "branchcode": "595",
+      "branchname": "乌鲁木齐黄河路证券营业部"
+    },
+    {
+      "cityno": "120",
+      "branchcode": "596",
+      "branchname": "漳州台商投资区证券营业部"
+    },
+    {
+      "cityno": "138",
+      "branchcode": "597",
+      "branchname": "滕州解放中路证券营业部"
+    },
+    {
+      "cityno": "79",
+      "branchcode": "598",
+      "branchname": "南通工农路证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "599",
+      "branchname": "深圳海德一道证券营业部"
+    },
+    {
+      "cityno": "2",
+      "branchcode": "600",
+      "branchname": "天津鼓楼证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "601",
+      "branchname": "上海闵行区申长路证券营业部"
+    },
+    {
+      "cityno": "88",
+      "branchcode": "607",
+      "branchname": "宁波梅山保税港区证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "611",
+      "branchname": "深圳福华一路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "616",
+      "branchname": "北京朝阳公园路证券营业部"
+    },
+    {
+      "cityno": "197",
+      "branchcode": "628",
+      "branchname": "广州琶洲证券营业部"
+    },
+    {
+      "cityno": "202",
+      "branchcode": "636",
+      "branchname": "佛山大沥证券营业部"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "658",
+      "branchname": "上海浦东新区浦建路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "660",
+      "branchname": "北京广渠路证券营业部"
+    },
+    {
+      "cityno": "1",
+      "branchcode": "668",
+      "branchname": "北京亦庄证券营业部"
+    },
+    {
+      "cityno": "80",
+      "branchcode": "669",
+      "branchname": "连云港苍梧路证券营业部\n"
+    },
+    {
+      "cityno": "73",
+      "branchcode": "678",
+      "branchname": "上海虹口区东大名路证券营业部"
+    },
+    {
+      "cityno": "197",
+      "branchcode": "686",
+      "branchname": "广州番禺万达广场证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "696",
+      "branchname": "深圳湾科技生态园证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "698",
+      "branchname": "深圳深业上城证券营业部"
+    },
+    {
+      "cityno": "199",
+      "branchcode": "538",
+      "branchname": "深圳前海自贸区梦海大道证券营业部"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 <template lang="pug">
-Popup(position='bottom' round :show='show' @update:show='closePopup')
+Popup(position='bottom' round :show='show' v-bind='$attrs' @update:show='closePopup')
   .action-sheet
     .action-sheet-head
       .action-sheet-cancel(@click='onCancel' ) {{cancelText}}

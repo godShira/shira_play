@@ -1,10 +1,10 @@
 <template lang="pug">
-#map(:style='`height: ${ height }px`')
+#my-map(:style='{height:` ${ height }px`, overflow: "hidden"}')
 </template>
 
 <script>
 import BMap from 'BMap'
-import { ref, onMounted, watchEffect } from 'vue'
+import { ref, onMounted, watchEffect, nextTick } from 'vue'
 import props from './props'
 export default {
   name: 'BMap',
@@ -13,8 +13,7 @@ export default {
     watchEffect(() => {
       const branch_near_list = [...props.list]
       if (branch_near_list && branch_near_list.length) {
-        console.log(branch_near_list)
-        let map = new BMap.Map('map')
+        let map = new BMap.Map('my-map')
         const initX = branch_near_list[0].location[0]
         const initY = branch_near_list[0].location[1]
         map.centerAndZoom(new BMap.Point(initX, initY), props.zoom)
@@ -32,13 +31,15 @@ const useInitMapHeight = () => {
   onMounted(() => {
     const searchDom = document.getElementById('BRANCH_SEARCH_ID')
     height.value = document.body.offsetHeight
-    if (searchDom) {
-      height.value -= searchDom.clientHeight
-    }
-    const paneDom = document.getElementById('BRANCH_NEAR_PANE_ID')
-    if (paneDom) {
-      height.value -= paneDom.clientHeight
-    }
+    setTimeout(() => {
+      if (searchDom) {
+        height.value -= searchDom.clientHeight
+      }
+      const paneDom = document.getElementById('BRANCH_NEAR_PANE_ID')
+      if (paneDom) {
+        height.value -= paneDom.clientHeight
+      }
+    })
   })
   return height
 }
