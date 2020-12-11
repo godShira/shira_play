@@ -16,20 +16,45 @@ export default {
   setup(props) {
     return {
       cptCityList,
-      ...useProvScroll(props, defaultSelectNum)
+      ...useProvScroll(props),
+      ...useCityScroll(props)
     }
   }
 }
-const defaultSelectNum = 2
-const cptCityList = (items, provIndex = defaultSelectNum) => {
+
+const defaultProvinceNum = 0
+const cptCityList = (items, provIndex = defaultProvinceNum) => {
   const cityList = ref(null)
   watchEffect(() => {
-    cityList.value = items.length && items[provIndex] ? items[provIndex].children : items[defaultSelectNum].children
+    cityList.value = items.length && items[provIndex] ? items[provIndex].children : items[defaultProvinceNum].children
   })
   return cityList.value
 }
 
-const useProvScroll = (props, defaultSelectNum) => {
+const useCityScroll = props => {
+  const cityLastDom = ref(null)
+  const cityWrapDom = ref(null)
+  const cityIndex = ref(null)
+  const nullNum = 2
+  const handleScroll = event => {}
+  onMounted(() => {
+    watchEffect(() => {
+      if (cityWrapDom.value) {
+        const provLastDomRect = cityLastDom.value.getBoundingClientRect()
+        cityWrapDom.value.style.paddingTop = provLastDomRect.height * nullNum + 'px'
+        cityWrapDom.value.style.paddingBottom = provLastDomRect.height * nullNum + 'px'
+        cityWrapDom.value.addEventListener('scroll', handleScroll)
+      }
+    })
+  })
+  return {
+    cityLastDom,
+    cityWrapDom,
+    cityIndex
+  }
+}
+const useProvScroll = props => {
+  const defaultNullNum = 2
   const provLastDom = ref(null)
   const provWrapDom = ref(null)
   const t1 = ref(null)
@@ -43,17 +68,19 @@ const useProvScroll = (props, defaultSelectNum) => {
       const provLastDomRect = provLastDom.value.getBoundingClientRect()
       const canSeeHeight = provLastDomRect.height * num
       const provItemLength = provLastDomRect.height * props.items.length
-      t1.value = document.body.clientHeight + provItemLength - canSeeHeight - provLastDomRect.bottom
+      const clientHeight = document.body.clientHeight
+      const plusHeight = clientHeight + provItemLength + provLastDomRect.height * defaultNullNum
+      t1.value = plusHeight - canSeeHeight - provLastDomRect.bottom
       if (timer) clearTimeout(timer)
       timer = setTimeout(() => {
-        t2.value = document.body.clientHeight + provItemLength - canSeeHeight - provLastDomRect.bottom
+        t2.value = plusHeight - canSeeHeight - provLastDomRect.bottom
         if (t1.value === t2.value) {
           if (provWrapDom.value.scrollTo) {
             provWrapDom.value.scrollTo(0, Math.round(t1.value / provLastDomRect.height) * provLastDomRect.height)
           } else {
             provWrapDom.value.scrollTop = Math.round(t1.value / provLastDomRect.height) * provLastDomRect.height
           }
-          provIndex.value = Math.round(t1.value / provLastDomRect.height) + defaultSelectNum
+          provIndex.value = Math.round(t1.value / provLastDomRect.height)
         }
       }, timeoutSeconds)
     }
@@ -61,6 +88,9 @@ const useProvScroll = (props, defaultSelectNum) => {
   onMounted(() => {
     watchEffect(() => {
       if (provWrapDom.value) {
+        const provLastDomRect = provLastDom.value.getBoundingClientRect()
+        provWrapDom.value.style.paddingTop = provLastDomRect.height * defaultNullNum + 'px'
+        provWrapDom.value.style.paddingBottom = provLastDomRect.height * defaultNullNum + 'px'
         provWrapDom.value.addEventListener('scroll', handleScroll)
       }
     })
@@ -107,7 +137,7 @@ const useProvScroll = (props, defaultSelectNum) => {
   }
   .city-wrap {
     right: 0;
-    top: 100px;
+    top: 0;
   }
 }
 </style>
