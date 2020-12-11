@@ -11,28 +11,25 @@ Popup(position='bottom' round :show='show' v-bind='$attrs' @update:show='closePo
 <script>
 import { ref } from 'vue'
 import { OPTION_SETTING } from './config'
-
+export default {
+  ...OPTION_SETTING,
+  emits: ['confirm', 'cancel', 'update:show'],
+  setup(_, context) {
+    return useMethod(context.emit)
+  }
+}
 const useMethod = emit => {
   const closePopup = () => emit('update:show', false)
   const onCancel = () => {
     closePopup()
-    console.log('cancel')
     emit('cancel')
   }
   const onConfirm = () => {
-    closePopup()
-    console.log('confirm')
-    emit('confirm')
+    // closePopup()
+    emit('confirm', closePopup)
   }
 
   return { onCancel, onConfirm, closePopup }
-}
-
-export default {
-  ...OPTION_SETTING,
-  setup(_, context) {
-    return useMethod(context.emit)
-  }
 }
 </script>
 <style lang="scss">

@@ -1,6 +1,6 @@
 <template lang="pug">
 .branch
-  .search(style="height: 100px" id="BRANCH_SEARCH_ID") 1222
+  branch-search(id="BRANCH_SEARCH_ID")
   bd-map(:list="branch_near_list")
   branch-near-pane(:list="branch_near_list" id="BRANCH_NEAR_PANE_ID")
   branch-city(label="城市" :items="provinceCityList" v-model:value="currentCity")

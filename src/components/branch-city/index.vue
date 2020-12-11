@@ -1,7 +1,8 @@
 <template lang="pug">
 .branch-city(v-if='items && items.length')
-  .txt-bold(v-for='(item,index) in items' :key="index") {{item.label}}
-  action-sheet(:show="true" title="城市" :isConfirmShow="true" :round="false")
+  .txt-bold(@click="provCityFlag = true") 打开省市区
+  //.txt-bold(v-for='(item,index) in items' :key="index") {{item.label}}
+  action-sheet(v-model:show="provCityFlag" title="城市" :isConfirmShow="true" :round="false" @confirm="done=>provCityConfirm(provIndex,cityIndex,done)")
     .prov-city-cnt.px-12.relative.hidden(style='height: 250px')
       .prov-wrap.txt-center(ref="provWrapDom")
         .item.txt-h3.py-16.txt-ellipsis(v-for='(prov,index) in items' :key="index" :ref="index===(items.length-1)?'provLastDom':''") {{prov.label}}{{prov.value}}
@@ -16,15 +17,24 @@ export default {
   setup(props) {
     const num = 5
     const timeoutSeconds = 200
+    const provCityFlag = ref(false)
     return {
+      provCityFlag,
+      provCityConfirm,
       cptCityList,
-      ...useProvScroll(props, num, timeoutSeconds),
-      ...useCityScroll(props, num, timeoutSeconds)
+      ...useProvScroll(props, num, timeoutSeconds, provCityFlag),
+      ...useCityScroll(props, num, timeoutSeconds, provCityFlag)
     }
   }
 }
 const defaultNullNum = 2
 const defaultNum = 0
+const defaultCellHeight = 50
+
+const provCityConfirm = (provIndex, cityIndex, done) => {
+  console.log(provIndex, cityIndex)
+  done && done()
+}
 const cptCityList = (items, provIndex = defaultNum) => {
   const cityList = ref(null)
   watchEffect(() => {
@@ -66,8 +76,9 @@ const useCityScroll = (props, num, timeoutSeconds) => {
     watchEffect(() => {
       if (cityWrapDom.value) {
         const cityLastDomRect = cityLastDom.value.getBoundingClientRect()
-        cityWrapDom.value.style.paddingTop = cityLastDomRect.height * defaultNullNum + 'px'
-        cityWrapDom.value.style.paddingBottom = cityLastDomRect.height * defaultNullNum + 'px'
+        const defaultHeight = cityLastDomRect.height ? cityLastDomRect.height : defaultCellHeight
+        cityWrapDom.value.style.paddingTop = defaultHeight * defaultNullNum + 'px'
+        cityWrapDom.value.style.paddingBottom = defaultHeight * defaultNullNum + 'px'
         cityWrapDom.value.addEventListener('scroll', handleScroll)
       }
     })
@@ -78,7 +89,7 @@ const useCityScroll = (props, num, timeoutSeconds) => {
     cityIndex
   }
 }
-const useProvScroll = (props, num, timeoutSeconds) => {
+const useProvScroll = (props, num, timeoutSeconds, provCityFlag) => {
   const provLastDom = ref(null)
   const provWrapDom = ref(null)
   const provIndex = ref(null)
@@ -97,10 +108,11 @@ const useProvScroll = (props, num, timeoutSeconds) => {
       timer = setTimeout(() => {
         t2.value = plusHeight - canSeeHeight - provLastDomRect.bottom
         if (t1.value === t2.value) {
+          const scrollTop = Math.round(t1.value / provLastDomRect.height) * provLastDomRect.height
           if (provWrapDom.value.scrollTo) {
-            provWrapDom.value.scrollTo(0, Math.round(t1.value / provLastDomRect.height) * provLastDomRect.height)
+            provWrapDom.value.scrollTo(0, scrollTop)
           } else {
-            provWrapDom.value.scrollTop = Math.round(t1.value / provLastDomRect.height) * provLastDomRect.height
+            provWrapDom.value.scrollTop = scrollTop
           }
           provIndex.value = Math.round(t1.value / provLastDomRect.height)
         }
@@ -109,10 +121,11 @@ const useProvScroll = (props, num, timeoutSeconds) => {
   }
   onMounted(() => {
     watchEffect(() => {
-      if (provWrapDom.value) {
+      if (provCityFlag.value) {
         const provLastDomRect = provLastDom.value.getBoundingClientRect()
-        provWrapDom.value.style.paddingTop = provLastDomRect.height * defaultNullNum + 'px'
-        provWrapDom.value.style.paddingBottom = provLastDomRect.height * defaultNullNum + 'px'
+        const defaultHeight = provLastDomRect.height ? provLastDomRect.height : defaultCellHeight
+        provWrapDom.value.style.paddingTop = defaultHeight * defaultNullNum + 'px'
+        provWrapDom.value.style.paddingBottom = defaultHeight * defaultNullNum + 'px'
         provWrapDom.value.addEventListener('scroll', handleScroll)
       }
     })

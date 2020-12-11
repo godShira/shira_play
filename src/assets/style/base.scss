@@ -1,4 +1,5 @@
 * {
+  -webkit-tap-highlight-color:rgba(0, 0, 0, 0);margin:0; padding:0; border:none;
   &,
   &:before,
   &:after {
@@ -6,14 +7,20 @@
     margin: 0;
   }
 }
+html{
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
 html,
 body,
 #app {
   @extend .full-w;
   @extend .full-h;
 }
+input[type="submit"],input[type="reset"],input[type="button"],input{-webkit-appearance:none; resize: none;font-family: "PingFang SC","Helvetica Neue",Helvetica,"Hiragino Sans GB",Arial,"Microsoft YaHei","微软雅黑",sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}
 input,textarea {
   caret-color: inherit;
+  outline: none;
 }
 body{
   font-family: "PingFang SC","Helvetica Neue",Helvetica,sans-serif,"Hiragino Sans GB",Arial,"Microsoft YaHei","微软雅黑","Segoe UI Emoji","Segoe UI Symbol";
