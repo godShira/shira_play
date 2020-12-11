@@ -4,9 +4,9 @@
   action-sheet(:show="true" title="城市" :isConfirmShow="true" :round="false")
     .prov-city-cnt.px-12.relative.hidden(style='height: 250px')
       .prov-wrap.txt-center(ref="provWrapDom")
-        .txt-h3.py-16(v-for='(prov,index) in items' :key="index" :ref="index===(items.length-1)?'provLastDom':''") {{prov.label}}{{prov.value}}
+        .item.txt-h3.py-16.txt-ellipsis(v-for='(prov,index) in items' :key="index" :ref="index===(items.length-1)?'provLastDom':''") {{prov.label}}{{prov.value}}
       .city-wrap.txt-center(ref="cityWrapDom" v-if="items")
-        .txt-h3.py-16(v-for='(city,index) in cptCityList(items,provIndex)' :key="index" :ref="index===(cptCityList(items,provIndex).length-1)?'cityLastDom':''") {{city.label}}{{city.value}}
+        .item.txt-h3.py-16.txt-ellipsis(v-for='(city,index) in cptCityList(items,provIndex)' :key="index" :ref="index===(cptCityList(items,provIndex).length-1)?'cityLastDom':''") {{city.label}}{{city.value}}
 </template>
 <script>
 import { ref, computed, onMounted, watchEffect, unref } from 'vue'
@@ -39,7 +39,7 @@ const useProvScroll = (props, defaultSelectNum) => {
   const handleScroll = event => {
     if (event.currentTarget) {
       const num = 5
-      const timeoutSeconds = 500
+      const timeoutSeconds = 200
       const provLastDomRect = provLastDom.value.getBoundingClientRect()
       const canSeeHeight = provLastDomRect.height * num
       const provItemLength = provLastDomRect.height * props.items.length
@@ -93,8 +93,13 @@ const useProvScroll = (props, defaultSelectNum) => {
     position: absolute;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    width: 50%;
+    width: 40%;
+    padding: 0 5%;
     bottom: 0;
+    .item {
+      width: 100%;
+      height: 18px;
+    }
   }
   .prov-wrap {
     left: 0;
