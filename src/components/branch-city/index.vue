@@ -4,64 +4,71 @@
   action-sheet(:show="true" title="城市" :isConfirmShow="true" :round="false")
     .prov-city-cnt.px-12.relative.hidden(style='height: 250px')
       .prov-wrap.txt-center(ref="provWrapDom")
-        .txt-h3.py-16(v-for='(prov,index) in items' :key="index" :ref="index===(items.length-1)?'firstDom':''") {{prov.label}}{{prov.value}}
-      .city-wrap.txt-center
-        .txt-h3.py-16(v-for='(city,index) in cptCityList' :key="index") {{city.label}}{{city.value}}
+        .txt-h3.py-16(v-for='(prov,index) in items' :key="index" :ref="index===(items.length-1)?'provLastDom':''") {{prov.label}}{{prov.value}}
+      .city-wrap.txt-center(ref="cityWrapDom" v-if="items")
+        .txt-h3.py-16(v-for='(city,index) in cptCityList(items,provIndex)' :key="index" :ref="index===(cptCityList(items,provIndex).length-1)?'cityLastDom':''") {{city.label}}{{city.value}}
 </template>
 <script>
-import { ref, computed, onMounted, watchEffect } from 'vue'
+import { ref, computed, onMounted, watchEffect, unref } from 'vue'
 export default {
   name: 'branch-city',
   props: ['items', 'value'],
   setup(props) {
-    const firstDom = ref(null)
-    const provWrapDom = ref(null)
-    const t1 = ref(null)
-    const t2 = ref(null)
-    let timer = null
-    const handleScroll = event => {
-      console.log(event)
-      if (event.currentTarget) {
-        console.log('开始滚动')
-        const num = 5
-        const timeoutSeconds = 500
-        const firstDomRect = firstDom.value.getBoundingClientRect()
-        const canSeeHeight = firstDomRect.height * num
-        const provItemLength = firstDomRect.height * props.items.length
-        t1.value = document.body.clientHeight + provItemLength - canSeeHeight - firstDomRect.bottom
-        if (timer) clearTimeout(timer)
-        timer = setTimeout(() => {
-          t2.value = document.body.clientHeight + provItemLength - canSeeHeight - firstDomRect.bottom
-          if (t1.value === t2.value) {
-            console.log('结束了')
-            if (provWrapDom.scrollTo) {
-              console.log('scrollTo')
-              provWrapDom.scrollTo(0, Math.round(firstDomRect.top / 50) * 50)
-            } else {
-              console.log('scrollToelse')
-              console.log(provWrapDom)
-              provWrapDom.scrollTop = Math.round(firstDomRect.top / 50) * 50
-            }
-          }
-        }, timeoutSeconds)
-        console.log(t1)
-      }
-    }
-    onMounted(() => {
-      watchEffect(() => {
-        if (provWrapDom.value) {
-          provWrapDom.value.addEventListener('scroll', handleScroll)
-        }
-      })
-    })
-    const cptCityList = computed(() => {
-      return [{ label: 'aaa', value: '111' }]
-    })
     return {
       cptCityList,
-      firstDom,
-      provWrapDom
+      ...useProvScroll(props, defaultSelectNum)
     }
+  }
+}
+const defaultSelectNum = 2
+const cptCityList = (items, provIndex = defaultSelectNum) => {
+  const cityList = ref(null)
+  watchEffect(() => {
+    cityList.value = items.length && items[provIndex] ? items[provIndex].children : items[defaultSelectNum].children
+  })
+  return cityList.value
+}
+
+const useProvScroll = (props, defaultSelectNum) => {
+  const provLastDom = ref(null)
+  const provWrapDom = ref(null)
+  const t1 = ref(null)
+  const t2 = ref(null)
+  const provIndex = ref(null)
+  let timer = null
+  const handleScroll = event => {
+    if (event.currentTarget) {
+      const num = 5
+      const timeoutSeconds = 500
+      const provLastDomRect = provLastDom.value.getBoundingClientRect()
+      const canSeeHeight = provLastDomRect.height * num
+      const provItemLength = provLastDomRect.height * props.items.length
+      t1.value = document.body.clientHeight + provItemLength - canSeeHeight - provLastDomRect.bottom
+      if (timer) clearTimeout(timer)
+      timer = setTimeout(() => {
+        t2.value = document.body.clientHeight + provItemLength - canSeeHeight - provLastDomRect.bottom
+        if (t1.value === t2.value) {
+          if (provWrapDom.value.scrollTo) {
+            provWrapDom.value.scrollTo(0, Math.round(t1.value / provLastDomRect.height) * provLastDomRect.height)
+          } else {
+            provWrapDom.value.scrollTop = Math.round(t1.value / provLastDomRect.height) * provLastDomRect.height
+          }
+          provIndex.value = Math.round(t1.value / provLastDomRect.height) + defaultSelectNum
+        }
+      }, timeoutSeconds)
+    }
+  }
+  onMounted(() => {
+    watchEffect(() => {
+      if (provWrapDom.value) {
+        provWrapDom.value.addEventListener('scroll', handleScroll)
+      }
+    })
+  })
+  return {
+    provLastDom,
+    provWrapDom,
+    provIndex
   }
 }
 </script>
