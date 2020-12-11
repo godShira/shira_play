@@ -5,7 +5,7 @@
     .prov-city-cnt.px-12.relative.hidden(style='height: 250px')
       .prov-wrap.txt-center(ref="provWrapDom")
         .item.txt-h3.py-16.txt-ellipsis(v-for='(prov,index) in items' :key="index" :ref="index===(items.length-1)?'provLastDom':''") {{prov.label}}{{prov.value}}
-      .city-wrap.txt-center(ref="cityWrapDom" v-if="items")
+      .city-wrap.txt-center(ref="cityWrapDom")
         .item.txt-h3.py-16.txt-ellipsis(v-for='(city,index) in cptCityList(items,provIndex)' :key="index" :ref="index===(cptCityList(items,provIndex).length-1)?'cityLastDom':''") {{city.label}}{{city.value}}
 </template>
 <script>
@@ -14,35 +14,60 @@ export default {
   name: 'branch-city',
   props: ['items', 'value'],
   setup(props) {
+    const num = 5
+    const timeoutSeconds = 200
     return {
       cptCityList,
-      ...useProvScroll(props),
-      ...useCityScroll(props)
+      ...useProvScroll(props, num, timeoutSeconds),
+      ...useCityScroll(props, num, timeoutSeconds)
     }
   }
 }
-
-const defaultProvinceNum = 0
-const cptCityList = (items, provIndex = defaultProvinceNum) => {
+const defaultNullNum = 2
+const defaultNum = 0
+const cptCityList = (items, provIndex = defaultNum) => {
   const cityList = ref(null)
   watchEffect(() => {
-    cityList.value = items.length && items[provIndex] ? items[provIndex].children : items[defaultProvinceNum].children
+    cityList.value = items.length && items[provIndex] ? items[provIndex].children : items[defaultNum].children
   })
   return cityList.value
 }
 
-const useCityScroll = props => {
+const useCityScroll = (props, num, timeoutSeconds) => {
   const cityLastDom = ref(null)
   const cityWrapDom = ref(null)
   const cityIndex = ref(null)
-  const nullNum = 2
-  const handleScroll = event => {}
+  const t1 = ref(null)
+  const t2 = ref(null)
+  let timer = null
+  const handleScroll = event => {
+    if (event.currentTarget) {
+      const cityLastDomRect = cityLastDom.value.getBoundingClientRect()
+      const canSeeHeight = cityLastDomRect.height * num
+      const cityItemLength = cityLastDomRect.height * cityWrapDom.value.childNodes.length
+      const clientHeight = document.body.clientHeight
+      const plusHeight = clientHeight + cityItemLength
+      t1.value = plusHeight - canSeeHeight - cityLastDomRect.bottom
+      if (timer) clearTimeout(timer)
+      timer = setTimeout(() => {
+        t2.value = plusHeight - canSeeHeight - cityLastDomRect.bottom
+        if (t1.value === t2.value) {
+          if (cityWrapDom.value.scrollTo) {
+            cityWrapDom.value.scrollTo(0, Math.round(t1.value / cityLastDomRect.height) * cityLastDomRect.height)
+          } else {
+            cityWrapDom.value.scrollTop = Math.round(t1.value / cityLastDomRect.height) * cityLastDomRect.height
+          }
+          cityIndex.value = Math.round(t1.value / cityLastDomRect.height)
+        }
+      }, timeoutSeconds)
+    }
+  }
   onMounted(() => {
     watchEffect(() => {
       if (cityWrapDom.value) {
-        const provLastDomRect = cityLastDom.value.getBoundingClientRect()
-        cityWrapDom.value.style.paddingTop = provLastDomRect.height * nullNum + 'px'
-        cityWrapDom.value.style.paddingBottom = provLastDomRect.height * nullNum + 'px'
+        const cityLastDomRect = cityLastDom.value.getBoundingClientRect()
+        cityWrapDom.value.style.paddingTop = cityLastDomRect.height * defaultNullNum + 'px'
+        cityWrapDom.value.style.paddingBottom = cityLastDomRect.height * defaultNullNum + 'px'
         cityWrapDom.value.addEventListener('scroll', handleScroll)
       }
     })
@@ -53,18 +78,15 @@ const useCityScroll = props => {
     cityIndex
   }
 }
-const useProvScroll = props => {
-  const defaultNullNum = 2
+const useProvScroll = (props, num, timeoutSeconds) => {
   const provLastDom = ref(null)
   const provWrapDom = ref(null)
+  const provIndex = ref(null)
   const t1 = ref(null)
   const t2 = ref(null)
-  const provIndex = ref(null)
   let timer = null
   const handleScroll = event => {
     if (event.currentTarget) {
-      const num = 5
-      const timeoutSeconds = 200
       const provLastDomRect = provLastDom.value.getBoundingClientRect()
       const canSeeHeight = provLastDomRect.height * num
       const provItemLength = provLastDomRect.height * props.items.length
