@@ -11,11 +11,18 @@ vue create my_app
 -> ESLint + prettier
 -> lint on save && lint and fix on commit
 ->...
+如报错：npm ERR! Unsupported URL Type "npm:": npm:vue-loader@16.1.0
+npm install npm@latest -g
+或者
+npm install -g npm
+npm install -g eslint-cli
 ```
 
 ## More install
 ```
 npm install axios qs --save
+npm install better-scroll --save
 npm i -D pug pug-plain-loader  --save --no-fund
 npm install vconsole --save-dev  --no-fund
+git config --global core.autocrlf false
 ```
