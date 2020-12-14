@@ -3,6 +3,7 @@
   .label.txt-h4 城市
   .selectedCity.flex-1.txt-h3(:class="{ noData: !`${selectedCityTxt}` }") {{selectedCityTxt?selectedCityTxt:'请选择城市'}}
   img.arrow_right(:src="require('./arrow-right.png')")
+
 </template>
 <script>
 export default {

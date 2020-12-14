@@ -4,6 +4,7 @@
   bd-map(:list="branch_near_list")
   branch-near-pane(:list="branch_near_list" id="BRANCH_NEAR_PANE_ID")
   branch-city-line(@click="showPicker" :selectedCityTxt="selectedCityTxt")
+  branch-item(:list="cptBranchList")
   branch-city-picker(
   v-if='provinceCityList && provinceCityList.length'
   @select="selectDigital"
@@ -14,7 +15,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 import { findBy } from '../../util/arr'
 export default {
   name: 'branch',
@@ -25,11 +26,11 @@ export default {
     let branch_all_list = ref([])
     let branch_province_list = ref([])
     let branch_city_list = ref([])
-    const globalBranchCode = '007' //TODO 全局拿
-    let currentCity = ref('')
+    const globalBranchCode = '005' //TODO 全局拿
     const pickerDom = ref(null)
     const defaultCityColomn = 2
     const selectedIndex = ref([]) //初始化
+    const currentCity = ref('')
     if (process.env.NODE_ENV === 'development') {
       import('./branchNear.json').then(res => {
         branch_near_list.value = res.list
@@ -38,18 +39,31 @@ export default {
         branch_all_list.value = res.branchList
         branch_province_list.value = res.provinceList
         branch_city_list.value = res.cityList
-        currentCity.value = useCurrentCity(globalBranchCode, branch_all_list.value)
+        const { cityno, provincenno, cityname } = useCurrentCity(
+          globalBranchCode,
+          branch_all_list.value,
+          branch_city_list.value
+        )
         provinceCityList.value = useProvinceCityList(branch_province_list.value, branch_city_list.value)
-        if (selectedIndex[0] && selectedIndex[1]) {
-          selectedCityTxt.value = provinceCityList.value[selectedIndex[0]].children[selectedIndex[1]].label
+        selectedCityTxt.value = cityname
+        currentCity.value = cityno
+        if (provinceCityList.value && provinceCityList.value.length) {
+          selectedIndex.value = useCityIndex(cityno, provincenno, provinceCityList.value)
         }
       })
     }
     const selectDigital = (index, item) => {
       if (item && item.length === defaultCityColomn) {
         selectedCityTxt.value = item[1].label
+        currentCity.value = item[1].value
       }
     }
+    const cptBranchList = computed(() => {
+      if (currentCity.value) {
+        return branch_all_list.value.filter(({ cityno }) => cityno === currentCity.value)
+      }
+      return branch_all_list.value
+    })
     const showPicker = () => {
       pickerDom.value ? pickerDom.value.show() : null
     }
@@ -57,9 +71,10 @@ export default {
       showPicker,
       pickerDom,
       selectDigital,
+      currentCity,
+      cptBranchList,
       selectedIndex,
       branch_near_list,
-      currentCity,
       provinceCityList,
       selectedCityTxt
     }
@@ -75,9 +90,17 @@ const useProvinceCityList = (branch_province_list, branch_city_list) => {
       .map(({ cityname, cityno }) => ({ label: cityname, value: cityno }))
   }))
 }
-const useCurrentCity = (branchCode, branch_all_list) => {
+const useCurrentCity = (branchCode, branch_all_list, branch_city_list) => {
   const matchIndex = findBy(branch_all_list, branchCode, 'branchcode')
   const { cityno } = branch_all_list[matchIndex] || {}
-  return cityno
+  const matchIndex1 = findBy(branch_city_list, cityno, 'cityno')
+  const { provincenno, cityname } = branch_city_list[matchIndex1] || {}
+  return { cityno, provincenno, cityname }
+}
+const useCityIndex = (cityno, provincenno, provinceCityList) => {
+  const matchIndex = findBy(provinceCityList, provincenno, 'value')
+  const childrenList = provinceCityList[matchIndex].children || []
+  const matchIndex1 = findBy(childrenList, cityno, 'value')
+  return [matchIndex, matchIndex1]
 }
 </script>

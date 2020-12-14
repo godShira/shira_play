@@ -1,0 +1,56 @@
+.border {
+border: 1px solid $borderColor;
+}
+
+.border-common {
+  position: absolute;
+  box-sizing: border-box;
+  content: '';
+  pointer-events: none;
+  @extend .full;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border: 0 solid $borderColor;
+}
+
+.border-t {
+  position: relative;
+  &:before {
+    @extend .border-common;
+    border-top-width: 1px;
+  }
+}
+
+.border-r {
+  position: relative;
+  &:after {
+    @extend .border-common;
+    border-right-width: 1px;
+  }
+}
+
+.border-b {
+  position: relative;
+  &:after {
+    @extend .border-common;
+    border-bottom-width: 1px;
+  }
+}
+
+.border-l {
+  position: relative;
+  &:before {
+    @extend .border-common;
+    border-left-width: 1px;
+  }
+}
+
+.border-0 {
+  border-width: 0 !important;
+  &:before,
+  &:after {
+    border-width: 0 !important;
+  }
+}
