@@ -6,7 +6,7 @@ my-picker(
     ref="picker"
     :title="title"
     :shadow="shadow"
-    @cancel="dataList(0)"
+    @cancel="dataList(selectedIndex[0])"
     @change="handleChange"
     :cancelTxt="cancelTxt"
     :confirmTxt="confirmTxt"
@@ -24,7 +24,7 @@ export default {
     }
   },
   mounted() {
-    this.dataList(0)
+    this.dataList(this.selectedIndex[0])
   },
   computed: {},
   watch: {
@@ -33,12 +33,12 @@ export default {
     },
     selectedIndex() {
       this.$refs.picker.setSelectedIndex([0, 0])
-      this.dataList(0, true)
+      this.dataList(0)
     }
   },
   methods: {
-    dataList(index, flag) {
-      if (flag) index = this.selectedIndex[0]
+    dataList(index) {
+      console.log(index)
       if (index === 0) {
         this.tempIndex = [0, 0]
       }
