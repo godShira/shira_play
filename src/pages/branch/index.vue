@@ -3,13 +3,11 @@
   branch-search(id="BRANCH_SEARCH_ID")
   bd-map(:list="branch_near_list")
   branch-near-pane(:list="branch_near_list" id="BRANCH_NEAR_PANE_ID")
-  //branch-city(label="城市" :items="provinceCityList" v-model:value="currentCity")
   .txt-bold(@click="showPicker") 打开省市区
-  branch-city-picker(@select="selectDigital"
+  branch-city-picker(
+  @select="selectDigital"
   :data="lianDongData"
-  :shadow="true"
-  :alias="{name:'displayName'}"
-  :selected-index="selectedIndex[1]"
+  :selected-index="selectedIndex"
   ref="pickerDom"
   :title="'选择城市'")
 </template>
@@ -37,161 +35,161 @@ export default {
         branch_city_list.value = res.cityList
         currentCity.value = useCurrentCity(globalBranchCode, branch_all_list.value)
         provinceCityList.value = useProvinceCityList(branch_province_list.value, branch_city_list.value)
+        //console.log(provinceCityList.value)
       })
     }
     const pickerDom = ref(null)
     const lianDongData = [
       {
-        displayId: 1,
-        displayName: '深圳市',
-        list: [
+        value: 1,
+        label: '深圳市',
+        children: [
           {
-            id: 4,
-            name: '南山区'
+            value: 4,
+            label: '南山区'
           },
           {
-            id: 24,
-            name: '龙华区'
+            value: 24,
+            label: '龙华区'
           },
           {
-            id: 1,
-            name: '宝安区'
+            value: 1,
+            label: '宝安区'
           },
           {
-            id: 23,
-            name: '龙岗区'
+            value: 23,
+            label: '龙岗区'
           },
           {
-            id: 3,
-            name: '福田区'
+            value: 3,
+            label: '福田区'
           },
           {
-            id: 2,
-            name: '盐田区'
+            value: 2,
+            label: '盐田区'
           }
         ]
       },
       {
-        displayId: 2,
-        displayName: '昆明市',
-        list: [
+        value: 2,
+        label: '昆明市',
+        children: [
           {
-            id: 6,
-            name: '五华区'
+            value: 6,
+            label: '五华区'
           },
           {
-            id: 7,
-            name: '盘龙区'
+            value: 7,
+            label: '盘龙区'
           },
           {
-            id: 8,
-            name: '官渡区'
+            value: 8,
+            label: '官渡区'
           },
           {
-            id: 9,
-            name: '西山区'
+            value: 9,
+            label: '西山区'
           },
           {
-            id: 10,
-            name: '东川区'
+            value: 10,
+            label: '东川区'
           },
           {
-            id: 29,
-            name: '呈贡区'
+            value: 29,
+            label: '呈贡区'
           },
           {
-            id: 53,
-            name: '晋宁区'
+            value: 53,
+            label: '晋宁区'
           }
         ]
       },
       {
-        displayId: 3,
-        displayName: '广州市',
-        list: [
+        value: 3,
+        label: '广州市',
+        children: [
           {
-            id: 14,
-            name: '越秀区'
+            value: 14,
+            label: '越秀区'
           },
           {
-            id: 12,
-            name: '海珠区'
+            value: 12,
+            label: '海珠区'
           },
           {
-            id: 11,
-            name: '荔湾区'
+            value: 11,
+            label: '荔湾区'
           },
           {
-            id: 13,
-            name: '天河区'
+            value: 13,
+            label: '天河区'
           },
           {
-            id: 12,
-            name: '白云区'
+            value: 12,
+            label: '白云区'
           },
           {
-            id: 11,
-            name: '黄埔区'
+            value: 11,
+            label: '黄埔区'
           },
           {
-            id: 13,
-            name: '南沙区'
+            value: 13,
+            label: '南沙区'
           }
         ]
       },
       {
-        displayId: 4,
-        displayName: '上海市',
-        list: [
+        value: 4,
+        label: '上海市',
+        children: [
           {
-            id: 17,
-            name: '浦东新区'
+            value: 17,
+            label: '浦东新区'
           },
           {
-            id: 16,
-            name: '徐汇'
+            value: 16,
+            label: '徐汇'
           },
           {
-            id: 30,
-            name: '长宁'
+            value: 30,
+            label: '长宁'
           },
           {
-            id: 17,
-            name: '普陀'
+            value: 17,
+            label: '普陀'
           },
           {
-            id: 16,
-            name: '闸北'
+            value: 16,
+            label: '闸北'
           },
           {
-            id: 30,
-            name: '虹口'
+            value: 30,
+            label: '虹口'
           },
           {
-            id: 17,
-            name: '杨浦'
+            value: 17,
+            label: '杨浦'
           },
           {
-            id: 16,
-            name: '黄浦'
+            value: 16,
+            label: '黄浦'
           },
           {
-            id: 30,
-            name: '卢湾'
+            value: 30,
+            label: '卢湾'
           }
         ]
       }
     ]
-    const selectedIndex = [[0], [0, 0], [0, 0, 0]]
-    //showPicker(pickerDom)
+    const num0 = 2
+    const num1 = 3
+    const selectedIndex = [num0, num1] //初始化
     const selectedD = ref('全部')
     const selectDigital = (index, item) => {
       console.log(index, item)
-      //selectedD.value = item !== '全部' ? item[0].displayName + ' ( ' + item[1].name + ' )' : item
-      //this.param.digitalSelect = item
     }
     const showPicker = () => {
-      console.log(pickerDom.value)
+      //console.log(pickerDom.value)
       pickerDom.value ? pickerDom.value.show() : null
     }
     return {

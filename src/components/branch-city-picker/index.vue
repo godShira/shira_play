@@ -4,7 +4,6 @@ my-picker(
     :list="linkageData"
     :selected-index="selectedIndex"
     ref="picker"
-    :alias="alias"
     :title="title"
     :shadow="shadow"
     @cancel="dataList(0)"
@@ -34,15 +33,16 @@ export default {
     },
     selectedIndex() {
       this.$refs.picker.setSelectedIndex([0, 0])
-      this.dataList(0)
+      this.dataList(0, true)
     }
   },
   methods: {
-    dataList(index) {
+    dataList(index, flag) {
+      if (flag) index = this.selectedIndex[0]
       if (index === 0) {
         this.tempIndex = [0, 0]
       }
-      const childList = [this.data[index].list][0]
+      const childList = [this.data[index].children][0]
       this.linkageData = [this.data, childList]
     },
     show() {

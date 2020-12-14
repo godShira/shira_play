@@ -13,7 +13,7 @@ transition(name="picker-fade")
           .wheel-wrapper(ref="wheelWrapper")
             .wheel(v-for="(parent, i) in pickerData" :key="i")
               ul.wheel-scroll
-                li.wheel-item(v-for="(item, index) in parent" :key="index") {{ item[alias.name] || item.name }}
+                li.wheel-item(v-for="(item, index) in parent" :key="index") {{ item.label }}
 </template>
 
 <script>

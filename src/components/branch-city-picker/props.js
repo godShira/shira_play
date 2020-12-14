@@ -5,13 +5,6 @@ export default {
       return []
     }
   },
-  alias: {
-    // name,num的别名
-    type: Object,
-    default() {
-      return {}
-    }
-  },
   title: {
     type: String
   },

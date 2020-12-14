@@ -1,7 +1,7 @@
-.shadow {
-  background-color: rgba(37, 38, 45, 0.4);
-}
 .my-picker {
+  &.shadow {
+    background-color: rgba(37, 38, 45, 0.4);
+  }
   position: fixed;
   left: 0;
   top: 0;
@@ -83,35 +83,6 @@
             }
           }
         }
-      }
-    }
-  }
-
-  @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
-    .border-top-1px {
-      &:before {
-        width: 200%;
-        transform: scale(0.5) translateZ(0);
-      }
-    }
-    .border-bottom-1px {
-      &:after {
-        width: 200%;
-        transform: scale(0.5) translateZ(0);
-      }
-    }
-  }
-  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
-    .border-top-1px {
-      &:before {
-        width: 300%;
-        transform: scale(0.333) translateZ(0);
-      }
-    }
-    .border-bottom-1px {
-      &:after {
-        width: 300%;
-        transform: scale(0.333) translateZ(0);
       }
     }
   }

@@ -12,13 +12,6 @@ export default {
     type: Boolean,
     default: false
   },
-  alias: {
-    // name,num的别名
-    type: Object,
-    default() {
-      return {}
-    }
-  },
   cancelTxt: {
     type: String,
     default: '取消'
