@@ -24,7 +24,7 @@ export default {
     }
   },
   mounted() {
-    this.dataList(this.selectedIndex[0])
+    this.dataList(this.selectedIndex[0] ? this.selectedIndex[0] : 0)
   },
   computed: {},
   watch: {
@@ -38,7 +38,6 @@ export default {
   },
   methods: {
     dataList(index) {
-      console.log(index)
       if (index === 0) {
         this.tempIndex = [0, 0]
       }

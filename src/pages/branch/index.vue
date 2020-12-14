@@ -3,7 +3,7 @@
   branch-search(id="BRANCH_SEARCH_ID")
   bd-map(:list="branch_near_list")
   branch-near-pane(:list="branch_near_list" id="BRANCH_NEAR_PANE_ID")
-  .txt-bold(@click="showPicker") 打开省市区
+  branch-city-line(@click="showPicker" :selectedCityTxt="selectedCityTxt")
   branch-city-picker(
   v-if='provinceCityList && provinceCityList.length'
   @select="selectDigital"
@@ -19,6 +19,7 @@ import { findBy } from '../../util/arr'
 export default {
   name: 'branch',
   setup() {
+    let selectedCityTxt = ref('')
     let provinceCityList = ref([])
     let branch_near_list = ref([])
     let branch_all_list = ref([])
@@ -26,6 +27,9 @@ export default {
     let branch_city_list = ref([])
     const globalBranchCode = '007' //TODO 全局拿
     let currentCity = ref('')
+    const pickerDom = ref(null)
+    const defaultCityColomn = 2
+    const selectedIndex = ref([]) //初始化
     if (process.env.NODE_ENV === 'development') {
       import('./branchNear.json').then(res => {
         branch_near_list.value = res.list
@@ -36,14 +40,15 @@ export default {
         branch_city_list.value = res.cityList
         currentCity.value = useCurrentCity(globalBranchCode, branch_all_list.value)
         provinceCityList.value = useProvinceCityList(branch_province_list.value, branch_city_list.value)
+        if (selectedIndex[0] && selectedIndex[1]) {
+          selectedCityTxt.value = provinceCityList.value[selectedIndex[0]].children[selectedIndex[1]].label
+        }
       })
     }
-    const pickerDom = ref(null)
-    const num0 = 2
-    const num1 = 2
-    const selectedIndex = [num0, num1] //初始化
     const selectDigital = (index, item) => {
-      console.log(index, item)
+      if (item && item.length === defaultCityColomn) {
+        selectedCityTxt.value = item[1].label
+      }
     }
     const showPicker = () => {
       pickerDom.value ? pickerDom.value.show() : null
@@ -55,7 +60,8 @@ export default {
       selectedIndex,
       branch_near_list,
       currentCity,
-      provinceCityList
+      provinceCityList,
+      selectedCityTxt
     }
   }
 }

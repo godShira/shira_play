@@ -6,7 +6,7 @@
         branch-near-item(v-bind="item")
   .txt-center.txt-mute.pt-12
     img.arrow_up.mb-6(:src="require('./arrow_up.png')")
-    .txt-h6 上拉显示更多结果
+    .txt-h4 上拉显示更多结果
 
 </template>
 
@@ -25,7 +25,7 @@ const transition_end_event = () => {}
 </script>
 <style lang="scss">
 .branch-near-pane {
-  background: #cccccc;
+  background: #f6f6f6;
   .arrow_up {
     width: 16px;
   }
