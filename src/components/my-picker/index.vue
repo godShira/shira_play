@@ -1,31 +1,20 @@
-<template>
-  <transition name="picker-fade">
-    <div class="p-beetscroll" :class="{ shadow: shadow }" v-show="state === 1" @touchmove.prevent @click="cancel">
-      <transition name="picker-move">
-        <div class="picker-panel" v-show="state === 1" @click.stop>
-          <div class="picker-choose border-bottom-1px">
-            <span class="cancel fs-30" @click="cancel">{{ cancelTxt }}</span>
-            <span class="confirm fs-30" @click="confirm">{{ confirmTxt }}</span>
-            <span class="picker-title fs-30">{{ title }}</span>
-          </div>
-          <div class="picker-content">
-            <div class="mask-top border-bottom-1px"></div>
-            <div class="mask-bottom border-top-1px"></div>
-            <div class="wheel-wrapper" ref="wheelWrapper">
-              <div class="wheel" v-for="(parent, i) in pickerData" :key="i">
-                <ul class="wheel-scroll">
-                  <li v-for="(item, index) in parent" :key="index" class="wheel-item">
-                    {{ item[alias.name] || item.name || dateTime(item, i) }}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="picker-footer"></div>
-        </div>
-      </transition>
-    </div>
-  </transition>
+<template lang="pug">
+transition(name="picker-fade")
+  .p-beetscroll(:class="{ shadow: shadow }" v-show="state === 1" @touchmove.prevent @click="cancel")
+    transition(name="picker-move")
+      .picker-panel(v-show="state === 1" @click.stop)
+        .picker-choose
+          .cancel(@click="cancel") {{ cancelTxt }}
+          .confirm(@click="confirm") {{ confirmTxt }}
+          .picker-title {{ title }}
+        .picker-content
+          .mask-top
+          .mask-bottom
+          .wheel-wrapper(ref="wheelWrapper")
+            .wheel(v-for="(parent, i) in pickerData" :key="i")
+              ul.wheel-scroll
+                li.wheel-item(v-for="(item, index) in parent" :key="index") {{ item[alias.name] || item.name }}
+        .picker-footer
 </template>
 
 <script>
@@ -60,18 +49,6 @@ export default {
     }
   },
   methods: {
-    dateTime(time, i) {
-      switch (i) {
-        case 0:
-          return time + '年'
-        case 1:
-          return time + '月'
-        case 2:
-          return time + '日'
-        default:
-          return time
-      }
-    },
     confirm() {
       if (!this._canConfirm()) {
         return
