@@ -1,6 +1,6 @@
 <template lang="pug">
 .branch
-  branch-search(id="BRANCH_SEARCH_ID")
+  branch-search(id="BRANCH_SEARCH_ID" @click="branchSearchEvent")
   bd-map(:list="branch_near_list")
   branch-near-pane(:list="branch_near_list" id="BRANCH_NEAR_PANE_ID")
   branch-city-line(@click="showPicker" :selectedCityTxt="selectedCityTxt")
@@ -58,6 +58,9 @@ export default {
         currentCity.value = item[1].value
       }
     }
+    const branchSearchEvent = () => {
+      //TODO： search跳转
+    }
     const cptBranchList = computed(() => {
       if (currentCity.value) {
         return branch_all_list.value.filter(({ cityno }) => cityno === currentCity.value)
@@ -73,6 +76,7 @@ export default {
       selectDigital,
       currentCity,
       cptBranchList,
+      branchSearchEvent,
       selectedIndex,
       branch_near_list,
       provinceCityList,

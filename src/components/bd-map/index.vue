@@ -1,5 +1,5 @@
 <template lang="pug">
-#my-map(:style='{height:` ${ height }px`, overflow: "hidden"}')
+#my-map(:style='cptMapStyle')
 </template>
 
 <script>
@@ -21,19 +21,21 @@ export default {
       }
     })
     return {
-      height: useInitMapHeight()
+      cptMapStyle: useInitMapHeight()
     }
   }
 }
 const useInitMapHeight = () => {
   const defaultHeight = 480
   const height = ref(defaultHeight)
+  const top = ref(0)
   onMounted(() => {
     const searchDom = document.getElementById('BRANCH_SEARCH_ID')
     height.value = document.body.offsetHeight
     setTimeout(() => {
       if (searchDom) {
         height.value -= searchDom.clientHeight
+        top.value = searchDom.clientHeight
       }
       const paneDom = document.getElementById('BRANCH_NEAR_PANE_ID')
       if (paneDom) {
@@ -41,7 +43,7 @@ const useInitMapHeight = () => {
       }
     })
   })
-  return height
+  return { height: `${height.value}px`, overflow: 'hidden', top: `${top.value}px` }
 }
 const markersClickEvent = (list, map) => {
   list.forEach(item => {
