@@ -5,7 +5,7 @@ transition(name="picker-fade")
       .picker-panel(v-show="state === 1" @click.stop)
         .my-picker-head.space-between.txt-info
           .my-picker-cancel(@click='onCancel' ) {{cancelTxt}}
-          .txt-h3.txt-bold.txt-default {{title || ''}}
+          .my-picker-title.txt-h3.txt-bold.txt-default {{title || ''}}
           .my-picker-confirm(@click='onConfirm') {{confirmTxt}}
         .picker-content
           .mask-top

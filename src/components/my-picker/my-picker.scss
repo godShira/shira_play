@@ -17,60 +17,35 @@
   .my-picker-head {
     padding: 20px 16px 6px;
     border-bottom: 1px solid #eee;
+    height: 25px;
+    line-height: 25px;
+    .my-picker-title{
+      line-height: 25px;
+    }
   }
   .picker-panel {
     position: absolute;
     z-index: 600;
     bottom: 0;
     width: 100%;
-    height: 250px;
+    height: 302px;
     background: #fff;
     &.picker-move-enter,
     &.picker-move-leave-active {
-      transform: translate3d(0, 250px, 0);
+      transform: translate3d(0, 352px, 0);
     }
     &.picker-move-enter-active,
     &.picker-move-leave-active {
       transition: all 0.3s ease-in-out;
     }
-    .picker-choose {
-      position: relative;
-      height: 33px;
-      color: #999;
-      line-height: 33px;
-      .picker-title {
-        margin: 0;
-        font-weight: normal;
-        text-align: center;
-        color: #333;
-      }
-      .confirm,
-      .cancel {
-        position: absolute;
-        padding: 0 10px 0 10px;
-      }
-      .confirm {
-        right: 0;
-        color: #c00;
-        &:active {
-          color: #f11717;
-        }
-      }
-      .cancel {
-        left: 0;
-        &:active {
-          color: #ccc;
-        }
-      }
-    }
     .picker-content {
       position: relative;
-      top: 25px;
+      top: 0;
       .mask-top,
       .mask-bottom {
         z-index: 10;
         width: 100%;
-        height: 60px;
+        height: 100px;
         pointer-events: none;
         transform: translateZ(0);
       }
@@ -78,28 +53,30 @@
         position: absolute;
         top: 0;
         background: linear-gradient(to top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.8));
+        border-bottom: 1px solid #eee;
       }
       .mask-bottom {
         position: absolute;
         bottom: 1px;
         background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.8));
+        border-top: 1px solid #eee;
       }
       .wheel-wrapper {
         display: flex;
         padding: 0 0.2rem;
         .wheel {
           flex: 1;
-          height: 155px;
+          height: 250px;
           overflow: hidden;
           font-size: 20px;
           .wheel-scroll {
             padding: 0;
-            margin-top: 60px;
-            line-height: 33px;
+            margin-top: 100px;
+            line-height: 50px;
             list-style: none;
             .wheel-item {
               list-style: none;
-              height: 33px;
+              height: 50px;
               overflow: hidden;
               white-space: nowrap;
               color: #333;
@@ -107,9 +84,6 @@
           }
         }
       }
-    }
-    .picker-footer {
-      height:10px;
     }
   }
 
