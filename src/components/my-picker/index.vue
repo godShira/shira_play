@@ -1,12 +1,12 @@
 <template lang="pug">
 transition(name="picker-fade")
-  .p-beetscroll(:class="{ shadow: shadow }" v-show="state === 1" @touchmove.prevent @click="cancel")
+  .my-picker.fixed.full.hidden.txt-center(:class="{ shadow: shadow }" v-show="state === 1" @touchmove.prevent @click="onCancel")
     transition(name="picker-move")
       .picker-panel(v-show="state === 1" @click.stop)
-        .picker-choose
-          .cancel(@click="cancel") {{ cancelTxt }}
-          .confirm(@click="confirm") {{ confirmTxt }}
-          .picker-title {{ title }}
+        .my-picker-head.space-between.txt-info
+          .my-picker-cancel(@click='onCancel' ) {{cancelTxt}}
+          .txt-h3.txt-bold.txt-default {{title || ''}}
+          .my-picker-confirm(@click='onConfirm') {{confirmTxt}}
         .picker-content
           .mask-top
           .mask-bottom
@@ -14,7 +14,6 @@ transition(name="picker-fade")
             .wheel(v-for="(parent, i) in pickerData" :key="i")
               ul.wheel-scroll
                 li.wheel-item(v-for="(item, index) in parent" :key="index") {{ item[alias.name] || item.name }}
-        .picker-footer
 </template>
 
 <script>
@@ -49,7 +48,7 @@ export default {
     }
   },
   methods: {
-    confirm() {
+    onConfirm() {
       if (!this._canConfirm()) {
         return
       }
@@ -76,7 +75,7 @@ export default {
         this.$emit(EVENT_VALUE_CHANGE, this.pickerSelectedIndex, this.pickerSelectedText)
       }
     },
-    cancel() {
+    onCancel() {
       this.hide()
       this.$emit(EVENT_CANCEL)
     },
@@ -210,178 +209,5 @@ export default {
 </script>
 
 <style lang="scss">
-.shadow {
-  background-color: rgba(37, 38, 45, 0.4);
-}
-.p-beetscroll {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 100;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  text-align: center;
-  &.picker-fade-enter,
-  &.picker-fade-leave-active {
-    opacity: 0;
-  }
-  &.picker-fade-enter-active,
-  &.picker-fade-leave-active {
-    transition: all 0.3s ease-in-out;
-  }
-  .picker-panel {
-    position: absolute;
-    z-index: 600;
-    bottom: 0;
-    width: 100%;
-    height: 250px;
-    background: #fff;
-    &.picker-move-enter,
-    &.picker-move-leave-active {
-      transform: translate3d(0, 250px, 0);
-    }
-    &.picker-move-enter-active,
-    &.picker-move-leave-active {
-      transition: all 0.3s ease-in-out;
-    }
-    .picker-choose {
-      position: relative;
-      height: 33px;
-      color: #999;
-      line-height: 33px;
-      .picker-title {
-        margin: 0;
-        font-weight: normal;
-        text-align: center;
-        color: #333;
-      }
-      .confirm,
-      .cancel {
-        position: absolute;
-        padding: 0 10px 0 10px;
-      }
-      .confirm {
-        right: 0;
-        color: #c00;
-        &:active {
-          color: #f11717;
-        }
-      }
-      .cancel {
-        left: 0;
-        &:active {
-          color: #ccc;
-        }
-      }
-    }
-    .picker-content {
-      position: relative;
-      top: 25px;
-      .mask-top,
-      .mask-bottom {
-        z-index: 10;
-        width: 100%;
-        height: 60px;
-        pointer-events: none;
-        transform: translateZ(0);
-      }
-      .mask-top {
-        position: absolute;
-        top: 0;
-        background: linear-gradient(to top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.8));
-      }
-      .mask-bottom {
-        position: absolute;
-        bottom: 1px;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.8));
-      }
-      .wheel-wrapper {
-        display: flex;
-        padding: 0 0.2rem;
-        .wheel {
-          flex: 1;
-          height: 155px;
-          overflow: hidden;
-          font-size: 20px;
-          .wheel-scroll {
-            padding: 0;
-            margin-top: 60px;
-            line-height: 33px;
-            list-style: none;
-            .wheel-item {
-              list-style: none;
-              height: 33px;
-              overflow: hidden;
-              white-space: nowrap;
-              color: #333;
-            }
-          }
-        }
-      }
-    }
-    .picker-footer {
-      height: 10px;
-    }
-  }
-  .border-top-1px,
-  .border-right-1px,
-  .border-bottom-1px,
-  .border-left-1px {
-    position: relative;
-    &:before,
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      transform-origin: 0 0;
-    }
-  }
-  .border-top-1px {
-    &:before {
-      border-top: 1px solid #ebebeb;
-      left: 0;
-      top: 0;
-      width: 100%;
-      transform-origin: 0 top;
-    }
-  }
-  .border-bottom-1px {
-    &:after {
-      border-bottom: 1px solid #ebebeb;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      transform-origin: 0 bottom;
-    }
-  }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
-    .border-top-1px {
-      &:before {
-        width: 200%;
-        transform: scale(0.5) translateZ(0);
-      }
-    }
-    .border-bottom-1px {
-      &:after {
-        width: 200%;
-        transform: scale(0.5) translateZ(0);
-      }
-    }
-  }
-  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
-    .border-top-1px {
-      &:before {
-        width: 300%;
-        transform: scale(0.333) translateZ(0);
-      }
-    }
-    .border-bottom-1px {
-      &:after {
-        width: 300%;
-        transform: scale(0.333) translateZ(0);
-      }
-    }
-  }
-}
+@import './my-picker';
 </style>

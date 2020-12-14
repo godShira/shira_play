@@ -11,7 +11,7 @@
   :alias="{name:'displayName'}"
   :selected-index="selectedIndex[1]"
   ref="pickerDom"
-  :title="'城市'")
+  :title="'选择城市'")
 </template>
 
 <script>

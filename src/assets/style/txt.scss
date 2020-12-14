@@ -8,7 +8,7 @@ $xs: 14px;
 $s: 16px;
 $m: 18px;
 $l: 24px;
-$xl: 18px;
+$xl: 28px;
 $sizes: $xxs, $xs, $s, $m, $l, $xl, 32px;
 $size-names: h6, h5, h4, h3, h2, h1, 32px;
 @include create-iteration(txt, font-size, $size-names, $sizes);
