@@ -1,6 +1,7 @@
 <template lang="pug">
 transition(name="picker-fade")
   .my-picker.fixed.full.hidden.txt-center(:class="{ shadow: shadow }" v-show="state === 1" @touchmove.prevent @click="onCancel")
+    .mask
     transition(name="picker-move")
       .picker-panel(v-show="state === 1" @click.stop)
         .my-picker-head.space-between.txt-info

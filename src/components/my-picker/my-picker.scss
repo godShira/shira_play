@@ -1,4 +1,16 @@
+.overlay-all {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
 .my-picker {
+  .mask {
+    position: absolute;
+    z-index: 99;
+    @extend .overlay-all;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
   &.shadow {
     background-color: rgba(37, 38, 45, 0.4);
   }
