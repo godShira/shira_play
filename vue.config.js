@@ -15,14 +15,17 @@ const devServer = {
   host: '0.0.0.0',
   port: 8090,
   https: false,
-  proxy: apiList.reduce((x, y) => ({
-    ...x,
-    [`/${y}`]: {
-      changeOrigin: true,
-      ws: true,
-      target
-    }
-  }))
+  proxy: apiList.reduce(
+    (x, y) => ({
+      ...x,
+      [`/${y}`]: {
+        changeOrigin: true,
+        ws: true,
+        target
+      }
+    }),
+    {}
+  )
 }
 
 const isTest = process.env.VUE_APP_IS_PROD === 'false'
