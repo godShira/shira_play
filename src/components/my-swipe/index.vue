@@ -80,8 +80,8 @@ export default {
       if (this.scrolling) return
       this.stopTimer()
       this.startX = e.touches[0].pageX
+      this.distance = 0
     },
-
     touchMove(e) {
       this.currentX = e.touches[0].pageX
       this.distance = this.currentX - this.startX

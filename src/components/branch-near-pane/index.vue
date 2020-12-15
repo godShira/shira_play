@@ -1,8 +1,8 @@
 <template lang="pug">
 .branch-near-pane.px-12.py-12
   .px-16.swipe-wrap
-    my-swipe.py-16(v-if='list && list.length' @transitionend="transition_end_event")
-      my-swipe-item(v-for='(item, index) in list' :key='index')
+    my-swipe.py-16(v-if='list && list.length' @click="swipeClick")
+      my-swipe-item(v-for='(item, index) in list' :key='index' @click="swipeClick(item)")
         branch-near-item(v-bind="item")
   .txt-center.txt-mute.pt-12
     img.arrow_up.mb-6(:src="require('./arrow_up.png')")
@@ -17,11 +17,13 @@ export default {
   props,
   setup(props) {
     return {
-      transition_end_event
+      swipeClick
     }
   }
 }
-const transition_end_event = () => {}
+const swipeClick = item => {
+  console.log(item)
+}
 </script>
 <style lang="scss">
 .branch-near-pane {
