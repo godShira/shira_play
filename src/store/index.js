@@ -1,5 +1,2 @@
-import { createStore } from 'vuex'
-
-export default createStore({
-  modules: {}
-})
+import { getFileList } from '@/util'
+export const stores = getFileList(require.context('@/store/modules/', true, /module.js/))

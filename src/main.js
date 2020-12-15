@@ -1,7 +1,8 @@
 import { createApp } from 'vue'
+import { createStore } from 'vuex'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import { stores } from './store'
 import { myComponents } from './components'
 import { myPlugins } from './plugins'
 
@@ -14,12 +15,13 @@ if (process.env.NODE_ENV === 'production' && process.env.VUE_APP_IS_PROD === 'fa
 }
 
 const app = createApp(App)
-app
-  .use(store)
-  .use(router)
-  .mount('#app')
+app.use(router).mount('#app')
 
 myComponents.forEach(name => app.component(name, require(`@/components/${name}`).default))
 for (let key in myPlugins) {
   app.use(myPlugins[key])
 }
+
+stores.forEach(name => {
+  app.use(createStore(require(`@/store/modules/${name}/module`).default))
+})

@@ -1,6 +1,6 @@
 <template lang="pug">
 .branch
-  branch-search(id="BRANCH_SEARCH_ID" @click="branchSearchEvent")
+  branch-search(id="BRANCH_SEARCH_ID" @click="branchSearchEvent" :readonly="true")
   bd-map(:list="branch_near_list")
   branch-near-pane(:list="branch_near_list" id="BRANCH_NEAR_PANE_ID")
   branch-city-line(@click="showPicker" :selectedCityTxt="selectedCityTxt")
@@ -16,10 +16,20 @@
 
 <script>
 import { ref, computed } from 'vue'
-import { findBy } from '../../util/arr'
+import { useStore } from 'vuex'
+import { findBy } from '@/util/arr'
+import {
+  BRANCH_PROVINCE_LIST,
+  BRANCH_CITY_LIST,
+  BRANCH_ALL_LIST,
+  BRANCH_NEAR_LIST,
+  BRANCH_SEARCH_HISTORY
+} from '@/store/modules/branch'
+
 export default {
   name: 'branch',
   setup() {
+    const store = useStore()
     let selectedCityTxt = ref('')
     let provinceCityList = ref([])
     let branch_near_list = ref([])
@@ -34,11 +44,15 @@ export default {
     if (process.env.NODE_ENV === 'development') {
       import('./branchNear.json').then(res => {
         branch_near_list.value = res.list
+        store.commit(BRANCH_NEAR_LIST, res.list)
       })
       import('./branchAll.json').then(res => {
         branch_all_list.value = res.branchList
         branch_province_list.value = res.provinceList
         branch_city_list.value = res.cityList
+        store.commit(BRANCH_PROVINCE_LIST, res.provinceList)
+        store.commit(BRANCH_CITY_LIST, res.cityList)
+        store.commit(BRANCH_ALL_LIST, res.branchList)
         const { cityno, provincenno, cityname } = useCurrentCity(
           globalBranchCode,
           branch_all_list.value,
