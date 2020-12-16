@@ -10,7 +10,7 @@ export default {
   name: 'branchsearch',
   setup() {
     const store = useStore()
-    console.log(store.state.BRANCH_ALL_LIST)
+    console.log(store.getters.BRANCH_ALL_LIST)
     const query = ref(null)
     return {
       query

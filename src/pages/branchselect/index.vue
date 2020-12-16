@@ -16,6 +16,7 @@
 
 <script>
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import { findBy } from '@/util/arr'
 import {
@@ -30,6 +31,7 @@ export default {
   name: 'branch',
   setup() {
     const store = useStore()
+    const router = useRouter()
     let selectedCityTxt = ref('')
     let provinceCityList = ref([])
     let branch_near_list = ref([])
@@ -73,7 +75,7 @@ export default {
       }
     }
     const branchSearchEvent = () => {
-      //TODO： search跳转
+      router.push('/branchsearch')
     }
     const cptBranchList = computed(() => {
       if (currentCity.value) {
