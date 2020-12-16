@@ -2,8 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from '@/store'
-import { myComponents } from './components'
-import { myPlugins } from './plugins'
+import components from '@/components'
+import plugins from '@/plugins'
 
 import '@/assets/style/index.scss'
 
@@ -17,9 +17,6 @@ const app = createApp(App)
 app
   .use(router)
   .use(store)
+  .use(plugins)
+  .use(components)
   .mount('#app')
-
-myComponents.forEach(name => app.component(name, require(`@/components/${name}`).default))
-for (let key in myPlugins) {
-  app.use(myPlugins[key])
-}
