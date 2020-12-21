@@ -8,7 +8,7 @@ process.env.VUE_APP_TITLE = description
 
 const target = 'dev path'
 
-const apiList = ['']
+const apiList = ['myapp']
 
 const devServer = {
   open: true,
@@ -31,7 +31,6 @@ const devServer = {
 const isTest = process.env.VUE_APP_IS_PROD === 'false'
 
 const publicPath = process.env.NODE_ENV === 'development' ? '/' : [isTest ? '' : '正式环境path', base].join('')
-
 module.exports = {
   publicPath,
   outputDir: `dist/${name}`,
