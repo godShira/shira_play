@@ -1,33 +1,63 @@
+// TODO: attr跟value可以写成map
+@mixin create-iteration-item($name, $attr, $value) {
+  .#{$name} {
+    #{$attr}: $value;
+  }
+}
+
 @mixin create-iteration($key, $attr, $names, $values) {
   @for $i from 1 through length($values) {
-    .#{$key}-#{'' + nth($names, $i)}{
-      #{$attr}: #{nth($values, $i)};
-      @if $attr == font-size { line-height: 1 };
-      @if $attr == border-color { border-width: 1px; border-style: solid; }
+    $name: #{$key}-#{nth($names, $i)};
+    @include create-iteration-item($name, $attr, #{nth($values, $i)});
+    @if $attr == font-size {
+      @include create-iteration-item($name, line-height, 1);
+    }
+    @if $attr == border-color {
+      @include create-iteration-item($name, border-width, 1px);
+      @include create-iteration-item($name, border-style, solid);
     }
   }
 }
 
-@mixin create-gap($gapTypes, $typeValues, $directions, $directionValues, $gapValues, $gapNames) {
-  @for $i from 1 through length($gapNames) {
-    @for $j from 1 through length($directions) {
-      @for $k from 1 through length($gapTypes) {
-        .#{nth($gapTypes, $k)}#{nth($directions, $j)}-#{'' + nth($gapNames, $i)}{
-          @if #{nth($directionValues, $j)} == kong {
-            @if #{nth($directions, $j)} == x {
-              #{nth($typeValues, $k)}-left: #{nth($gapValues, $i)};
-              #{nth($typeValues, $k)}-right: #{nth($gapValues, $i)};
-            }
-            @else if #{nth($directions, $j)} == y {
-              #{nth($typeValues, $k)}-top: #{nth($gapValues, $i)};
-              #{nth($typeValues, $k)}-bottom: #{nth($gapValues, $i)};
-            }
-          } @else {
-            #{nth($typeValues, $k)}-#{nth($directionValues, $j)}: #{nth($gapValues, $i)}
-          }
-        }
+$gap_dir: (
+  gapTypes: (m, p),
+  typeValues: (margin, padding),
+  directions: (t, r, b, l, x, y),
+  directionValues: (top, right, bottom, left, kong, kong),
+);
+$gapTypes: map-get($gap_dir, gapTypes);
+$directions: map-get($gap_dir, directions); 
+
+@function create-gap-obj() {
+  $obj: ();
+  @each $j in $directions {
+    @each $k in $gapTypes {
+      $name: #{$k}#{$j};
+      $value_k: #{nth(map-get($gap_dir,typeValues), index($gapTypes, $k))};
+      $value_j: #{nth(map-get($gap_dir,directionValues), index($directions, $j))};
+      @if $j == x {
+        $obj: map-merge($obj, ($name: (#{$value_k}-left, #{$value_k}-right)));
+      }
+      @if $j == y {
+        $obj: map-merge($obj, ($name: (#{$value_k}-top, #{$value_k}-bottom)));
+      }
+      @if $value_j != kong {
+        $obj: map-merge($obj, ($name: #{$value_k}-#{$value_j}));
       }
     }
+  }
+  @return $obj;
+}
 
+@mixin create-gap($gapNames) {
+  $map: create-gap-obj();
+  @each $i in $gapNames {
+    @each $j, $k in $map {
+      $name: #{$j}-#{$i};
+      @if length($k) > 1 {
+        @include create-iteration-item($name, #{nth($k, 2)}, #{$i}px);
+      }
+      @include create-iteration-item($name, #{nth($k, 1)}, #{$i}px);
+    }
   }
 }
