@@ -4,6 +4,7 @@ my-button.mt-22.mr-18(text="转入资金")
 my-button.mt-22.ml-22(text="我在其他券商资产满足" type="primary")
 my-button.my-22.mx-22(text="返回" type="primary" size="large")
 my-button.my-22.mx-22(size="large") 我在其他券商资产满足
+date-tabs(:tabs="tabs")
 </template>
 
 <script>
@@ -25,7 +26,9 @@ export default {
           ctx.$toast('已取消本次预约222')
         }
       })
+    const tabs = ['1', '2']
     return {
+      tabs,
       isShow: true
     }
   }

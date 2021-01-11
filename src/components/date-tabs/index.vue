@@ -11,9 +11,10 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 export default {
   name: 'date-tabs',
-  props: ['tabs'],
+  props: ['tabs', 'activeIndex'],
   setup() {
     return {
       ...useTabs(),
